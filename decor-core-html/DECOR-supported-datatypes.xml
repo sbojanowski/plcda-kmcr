@@ -1,0 +1,825 @@
+<!--
+    DECOR-supported-datatypes
+    Copyright (C) 2013-2016 Dr. Kai U. Heitmann, Alexander Henket
+
+    List of supported data types in ART-DECOR
+
+    reflects data types as <dataType> elements with the name
+    name must be present (as of now) in coreschematrons directory as DTr1_{name}.sch
+
+    data type elements are hierarchical representing inheritence, e.g.
+    a SC is_a ST is_a ED is_a BIN
+
+    Also reflects possibility of demotion
+
+    <flavor> elements may be added as immediate child elements of a data type
+    to reflect a data type flavor (variant, data type with further constraint),
+    additionally shall carry a realm indicator, e.g. DE, NL, AT etc. or UV
+
+    The mapping to one of the value domain data types of concepts in data sets
+    is also shown.
+    So far the possible mapping is shown for the following value domain data types
+      blob boolean code complex date datetime decimal duration identifier ordinal
+      quantity string text count
+
+    kh 20130318 rev 20130325 20130910 20160517
+
+-->
+<?xml-model href="DECOR-supported-datatypes.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<supportedDataTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DECOR-supported-datatypes.xsd" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" type="hl7v3xml1">
+    <dataType name="ANY" represents="blob boolean code complex date datetime decimal duration identifier ordinal quantity string text count">
+        <desc language="en-US">ANY</desc>
+        <dataType name="AD" represents="complex string text">
+            <desc language="en-US">Address</desc>
+            <flavor name="AD.PL" realm="PL">
+                <desc language="pl-PL">Polski adres</desc>
+                <element name="hl7:country" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:city" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:postalCode" minimumMultiplicity="0" maximumMultiplicity="1" conformance="O" isMandatory="false">
+                    <attribute name="xsi:type" datatype="st" value="extPL:adxp.postalCode" isOptional="true"/>
+                    <attribute name="postCity" datatype="st" isOptional="true"/>
+                 </element>
+                <element name="hl7:streetName" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:houseNumber" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:unitID" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:unitType" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:censusTract" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:streetAddressLine" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            </flavor>
+            <flavor name="AD.PL.ORG" realm="PL">
+                <desc language="pl-PL">Polski adres organizacji</desc>
+                <element name="hl7:country" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:city" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:postalCode" minimumMultiplicity="0" maximumMultiplicity="1" conformance="O" isMandatory="false">
+                    <attribute name="xsi:type" datatype="st" value="extPL:adxp.postalCode" isOptional="true"/>
+                    <attribute name="postCity" datatype="st" isOptional="true"/>
+                 </element>
+                <element name="hl7:streetName" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:houseNumber" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:unitID" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:unitType" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:censusTract" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+                <element name="hl7:streetAddressLine" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            </flavor>
+            <!-- official dtr1 attributes/elements -->
+            <attribute name="use" isOptional="true" datatype="set_cs"/>
+            <attribute name="isNotOrdered" isOptional="true" datatype="bl"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            <element name="hl7:delimiter" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:country" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:state" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:county" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:city" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:postalCode" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:streetAddressLine" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:houseNumber" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:houseNumberNumeric" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:direction" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:streetName" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:streetNameBase" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:streetNameType" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:additionalLocator" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:unitID" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:unitType" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:careOf" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:censusTract" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:deliveryAddressLine" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:deliveryInstallationType" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:deliveryInstallationArea" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:deliveryInstallationQualifier" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:deliveryMode" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:deliveryModeIdentifier" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:buildingNumberSuffix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:postBox" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+            <element name="hl7:precinct" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ADXP" conformance="O" isMandatory="false"/>
+        </dataType>
+        <dataType name="BIN" represents="blob">
+            <desc language="en-US">Binary Data</desc>
+            <dataType name="ED" represents="text">
+                <desc language="en-US">Encapsulated Data</desc>
+                <dataType name="ST" represents="string">
+                    <desc language="en-US">Character String</desc>
+                    <dataType name="SC" represents="code">
+                        <desc language="en-US">String with Codes</desc>
+                        <attribute name="code" datatype="cs" isOptional="true"/>
+                        <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                        <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                        <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                        <attribute name="displayName" datatype="st" isOptional="true"/>
+                        <attribute name="mediaType" datatype="cs" isOptional="true"/>
+                        <attribute name="language" datatype="cs" isOptional="true"/>
+                        <attribute name="compression" datatype="cs" isOptional="true">
+                            <vocabulary code="DF"/>
+                            <vocabulary code="GZ"/>
+                            <vocabulary code="Z"/>
+                            <vocabulary code="ZL"/>
+                        </attribute>
+                        <attribute name="integrityCheck" datatype="bin" isOptional="true"/>
+                        <attribute name="integrityCheckAlgorithm" datatype="cs" isOptional="true">
+                            <vocabulary code="SHA-1"/>
+                            <vocabulary code="SHA-256"/>
+                        </attribute>
+                        <attribute name="representation" isOptional="true" datatype="cs">
+                            <vocabulary code="B64"/>
+                            <vocabulary code="TXT"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:reference" minimumMultiplicity="0" maximumMultiplicity="1" datatype="TEL" conformance="O" isMandatory="false"/>
+                        <element name="hl7:thumbnail" minimumMultiplicity="0" maximumMultiplicity="1" datatype="thumbnail" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <dataType name="ENXP" represents="code string">
+                        <desc language="en-US">Entity Name Part</desc>
+                        <attribute name="partType" datatype="cs" isOptional="true"/>
+                        <attribute name="qualifier" datatype="set_cs" isOptional="true"/>
+                        <attribute name="mediaType" datatype="cs" isOptional="true"/>
+                        <attribute name="language" datatype="cs" isOptional="true"/>
+                        <attribute name="compression" datatype="cs" isOptional="true">
+                            <vocabulary code="DF"/>
+                            <vocabulary code="GZ"/>
+                            <vocabulary code="Z"/>
+                            <vocabulary code="ZL"/>
+                        </attribute>
+                        <attribute name="integrityCheck" datatype="bin" isOptional="true"/>
+                        <attribute name="integrityCheckAlgorithm" datatype="cs" isOptional="true">
+                            <vocabulary code="SHA-1"/>
+                            <vocabulary code="SHA-256"/>
+                        </attribute>
+                        <attribute name="representation" isOptional="true" datatype="cs">
+                            <vocabulary code="B64"/>
+                            <vocabulary code="TXT"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:reference" minimumMultiplicity="0" maximumMultiplicity="1" datatype="TEL" conformance="O" isMandatory="false"/>
+                        <element name="hl7:thumbnail" minimumMultiplicity="0" maximumMultiplicity="1" datatype="thumbnail" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <dataType name="ADXP" represents="code string">
+                        <desc language="en-US">Address Part</desc>
+                        <attribute name="partType" datatype="cs" isOptional="true"/>
+                        <attribute name="mediaType" datatype="cs" isOptional="true"/>
+                        <attribute name="language" datatype="cs" isOptional="true"/>
+                        <attribute name="compression" datatype="cs" isOptional="true">
+                            <vocabulary code="DF"/>
+                            <vocabulary code="GZ"/>
+                            <vocabulary code="Z"/>
+                            <vocabulary code="ZL"/>
+                        </attribute>
+                        <attribute name="integrityCheck" datatype="bin" isOptional="true"/>
+                        <attribute name="integrityCheckAlgorithm" datatype="cs" isOptional="true">
+                            <vocabulary code="SHA-1"/>
+                            <vocabulary code="SHA-256"/>
+                        </attribute>
+                        <attribute name="representation" isOptional="true" datatype="cs">
+                            <vocabulary code="B64"/>
+                            <vocabulary code="TXT"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:reference" minimumMultiplicity="0" maximumMultiplicity="1" datatype="TEL" conformance="O" isMandatory="false"/>
+                        <element name="hl7:thumbnail" minimumMultiplicity="0" maximumMultiplicity="1" datatype="thumbnail" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="mediaType" datatype="cs" isOptional="true"/>
+                    <attribute name="language" datatype="cs" isOptional="true"/>
+                    <attribute name="representation" isOptional="true" datatype="cs">
+                        <vocabulary code="B64"/>
+                        <vocabulary code="TXT"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <dataType name="thumbnail" represents="text">
+                    <desc language="en-US">Thumbnail</desc>
+                    <attribute name="mediaType" datatype="cs" isOptional="true"/>
+                    <attribute name="language" datatype="cs" isOptional="true"/>
+                    <attribute name="compression" datatype="cs" isOptional="true">
+                        <vocabulary code="DF"/>
+                        <vocabulary code="GZ"/>
+                        <vocabulary code="Z"/>
+                        <vocabulary code="ZL"/>
+                    </attribute>
+                    <attribute name="integrityCheck" datatype="bin" isOptional="true"/>
+                    <attribute name="integrityCheckAlgorithm" datatype="cs" isOptional="true">
+                        <vocabulary code="SHA-1"/>
+                        <vocabulary code="SHA-256"/>
+                    </attribute>
+                    <attribute name="representation" isOptional="true" datatype="cs">
+                        <vocabulary code="B64"/>
+                        <vocabulary code="TXT"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                    <element name="hl7:reference" minimumMultiplicity="0" maximumMultiplicity="1" datatype="TEL" conformance="O" isMandatory="false"/>
+                </dataType>
+                <attribute name="mediaType" datatype="cs" isOptional="true"/>
+                <attribute name="language" datatype="cs" isOptional="true"/>
+                <attribute name="compression" datatype="cs" isOptional="true">
+                    <vocabulary code="DF"/>
+                    <vocabulary code="GZ"/>
+                    <vocabulary code="Z"/>
+                    <vocabulary code="ZL"/>
+                </attribute>
+                <attribute name="integrityCheck" datatype="bin" isOptional="true"/>
+                <attribute name="integrityCheckAlgorithm" datatype="cs" isOptional="true">
+                    <vocabulary code="SHA-1"/>
+                    <vocabulary code="SHA-256"/>
+                </attribute>
+                <attribute name="representation" isOptional="true" datatype="cs">
+                    <vocabulary code="B64"/>
+                    <vocabulary code="TXT"/>
+                </attribute>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="hl7:reference" minimumMultiplicity="0" maximumMultiplicity="1" datatype="TEL" conformance="O" isMandatory="false"/>
+                <element name="hl7:thumbnail" minimumMultiplicity="0" maximumMultiplicity="1" datatype="thumbnail" conformance="O" isMandatory="false"/>
+            </dataType>
+            <attribute name="representation" isOptional="true" datatype="cs">
+                <vocabulary code="B64"/>
+                <vocabulary code="TXT"/>
+            </attribute>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+        </dataType>
+        <dataType name="BL" represents="boolean code">
+            <desc language="en-US">Boolean</desc>
+            <attribute name="value" isOptional="true" datatype="bl"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+        </dataType>
+        <dataType name="BN" represents="boolean code">
+            <desc language="en-US">Boolean Non Null</desc>
+            <attribute name="value" isOptional="true" datatype="bl"/>
+        </dataType>
+        <dataType name="CD" represents="code complex" hasStrength="true">
+            <desc language="en-US">Concept Descriptor</desc>
+            <dataType name="CE" represents="code complex" hasStrength="true">
+                <desc language="en-US">Coded with Equivalents</desc>
+                <dataType name="CV" represents="code complex" hasStrength="true">
+                    <desc language="en-US">Coded Value</desc>
+                    <dataType name="CO" represents="code complex" hasStrength="true">
+                        <desc language="en-US">Coded Ordinal</desc>
+                        <flavor name="CO.EPSOS" realm="EU" hasStrength="true">
+                            <desc language="en-US">epSOS</desc>
+                            <attribute name="code" datatype="cs" isOptional="true"/>
+                            <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                            <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                            <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                            <attribute name="displayName" datatype="st" isOptional="true"/>
+                            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                            <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+                        </flavor>
+                        <attribute name="code" datatype="cs" isOptional="true"/>
+                        <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                        <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                        <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                        <attribute name="displayName" datatype="st" isOptional="true"/>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <dataType name="PQR" represents="code complex decimal quantity count" hasStrength="true">
+                        <desc language="en-US">Physical Quantity Representation</desc>
+                        <attribute name="value" datatype="real" isOptional="true"/>
+                        <attribute name="code" datatype="cs" isOptional="true"/>
+                        <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                        <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                        <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                        <attribute name="displayName" datatype="st" isOptional="true"/>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="code" datatype="cs" isOptional="true"/>
+                    <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                    <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                    <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                    <attribute name="displayName" datatype="st" isOptional="true"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                    <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+                </dataType>
+                <dataType name="EIVL.event" realm="UV" hasStrength="true">
+                    <desc language="en-US">Event-Related Interval of Time</desc>
+                    <attribute name="code" datatype="cs" isOptional="true">
+                        <vocabulary code="AC"/>
+                        <vocabulary code="ACD"/>
+                        <vocabulary code="ACM"/>
+                        <vocabulary code="ACV"/>
+                        <vocabulary code="C"/>
+                        <vocabulary code="CD"/>
+                        <vocabulary code="CM"/>
+                        <vocabulary code="CV"/>
+                        <vocabulary code="HS"/>
+                        <vocabulary code="IC"/>
+                        <vocabulary code="ICD"/>
+                        <vocabulary code="ICM"/>
+                        <vocabulary code="ICV"/>
+                        <vocabulary code="PC"/>
+                        <vocabulary code="PCD"/>
+                        <vocabulary code="PCM"/>
+                        <vocabulary code="PCV"/>
+                        <vocabulary code="WAKE"/>
+                    </attribute>
+                    <attribute name="codeSystem" value="2.16.840.1.113883.5.139" datatype="oid" isOptional="true"/>
+                    <attribute name="codeSystemName" value="TimingEvent" datatype="st" isOptional="true"/>
+                    <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                    <attribute name="displayName" datatype="st" isOptional="true"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <attribute name="code" datatype="cs" isOptional="true"/>
+                <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                <attribute name="displayName" datatype="st" isOptional="true"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+                <element name="hl7:translation" minimumMultiplicity="0" maximumMultiplicity="*" datatype="CD" conformance="O" isMandatory="false"/>
+            </dataType>
+            <flavor name="CD.SDTC" realm="UV" hasStrength="true">
+                <desc language="en-US">Structured Documents Technical Committee</desc>
+                <attribute name="code" datatype="cs" isOptional="true"/>
+                <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+                <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+                <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+                <attribute name="displayName" datatype="st" isOptional="true"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <!-- Begin Extensions: SDTC -->
+                <attribute name="sdtc:valueSet" isOptional="true" datatype="oid" xmlns:sdtc="urn:hl7-org:sdtc"/>
+                <attribute name="sdtc:valueSetVersion" isOptional="true" datatype="st" xmlns:sdtc="urn:hl7-org:sdtc"/>
+                <!-- End Extensions: SDTC -->
+                <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+                <element name="hl7:qualifier" minimumMultiplicity="0" maximumMultiplicity="*" datatype="CR" conformance="O" isMandatory="false"/>
+                <element name="hl7:translation" minimumMultiplicity="0" maximumMultiplicity="*" datatype="CD" conformance="O" isMandatory="false"/>
+            </flavor>
+            <attribute name="code" datatype="cs" isOptional="true"/>
+            <attribute name="codeSystem" datatype="oid" isOptional="true"/>
+            <attribute name="codeSystemName" datatype="st" isOptional="true"/>
+            <attribute name="codeSystemVersion" datatype="st" isOptional="true"/>
+            <attribute name="displayName" datatype="st" isOptional="true"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            <element name="hl7:originalText" minimumMultiplicity="0" maximumMultiplicity="1" datatype="ED" conformance="O" isMandatory="false"/>
+            <element name="hl7:qualifier" minimumMultiplicity="0" maximumMultiplicity="*" datatype="CR" conformance="O" isMandatory="false"/>
+            <element name="hl7:translation" minimumMultiplicity="0" maximumMultiplicity="*" datatype="CD" conformance="O" isMandatory="false"/>
+        </dataType>
+        <dataType name="CR" represents="code complex" hasStrength="true">
+            <desc language="en-US">Concept Role</desc>
+            <attribute name="inverted" isOptional="true" datatype="bn"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            <element name="hl7:name" minimumMultiplicity="0" maximumMultiplicity="1" datatype="CV" conformance="O" isMandatory="false"/>
+            <element name="hl7:value" minimumMultiplicity="0" maximumMultiplicity="1" datatype="CD" conformance="O" isMandatory="false"/>
+        </dataType>
+        <dataType name="CS" represents="code" hasStrength="true">
+            <desc language="en-US">Coded Simple Value</desc>
+            <flavor name="CS.LANG" realm="UV" hasStrength="true">
+                <desc language="en-US">Language Codes</desc>
+                <operationalization language="en-US">The language is compliant to RFC 3066 (Tags for the Identification of Languages ). The format for the language to describe is ss [-CC] where ss stands for the language tag, according to ISO 639-1 and CC for the optional country code, ISO-3166 alpha-2. The resulting language indicator is not case sensitive.</operationalization>
+                <attribute name="code" datatype="cs" isOptional="true"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            </flavor>
+            <attribute name="code" datatype="cs" isOptional="true"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+        </dataType>
+        <dataType name="EN" represents="complex string">
+            <desc language="en-US">Entity Name</desc>
+            <dataType name="ON" represents="complex string">
+                <desc language="en-US">Organization Name</desc>
+                <attribute name="use" datatype="set_cs" isOptional="true"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="delimiter" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="prefix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="suffix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="validTime" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVL_TS" conformance="O" isMandatory="false"/>
+            </dataType>
+            <dataType name="PN" represents="complex string">
+                <desc language="en-US">Person Name</desc>
+                <flavor name="PN.NL" realm="NL">
+                    <desc language="en-US">Dutch Person Name</desc>
+                    <attribute name="use" datatype="set_cs" isOptional="true"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                    <element name="delimiter" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                    <element name="family" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                    <element name="given" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                    <element name="prefix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                    <element name="suffix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                    <element name="validTime" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVL_TS" conformance="O" isMandatory="false"/>
+                </flavor>
+                <attribute name="use" datatype="set_cs" isOptional="true"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="delimiter" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="family" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="given" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="prefix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="suffix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+                <element name="validTime" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVL_TS" conformance="O" isMandatory="false"/>
+            </dataType>
+            <dataType name="TN" represents="complex string">
+                <desc language="en-US">Trivial Name</desc>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="validTime" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVL_TS" conformance="O" isMandatory="false"/>
+            </dataType>
+            <attribute name="use" datatype="set_cs" isOptional="true"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            <element name="delimiter" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+            <element name="family" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+            <element name="given" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+            <element name="prefix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+            <element name="suffix" minimumMultiplicity="0" maximumMultiplicity="*" datatype="ENXP" conformance="O" isMandatory="false"/>
+            <element name="validTime" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVL_TS" conformance="O" isMandatory="false"/>
+        </dataType>
+        <dataType name="II" represents="complex identifier">
+            <desc language="en-US">Instance Identifier</desc>
+            <attribute name="root" isOptional="true" datatype="uid"/>
+            <attribute name="extension" isOptional="true" datatype="st"/>
+            <attribute name="assigningAuthorityName" isOptional="true" datatype="st"/>
+            <attribute name="displayable" isOptional="true" datatype="bl"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+        </dataType>
+        <dataType name="QTY" represents="complex date datetime decimal duration ordinal quantity count">
+            <desc language="en-US">Quantity</desc>
+            <dataType name="INT" represents="count">
+                <desc language="en-US">Integer</desc>
+                <dataType name="IVXB_INT" represents="count">
+                    <desc language="en-US">Interval Boundary of Integer</desc>
+                    <attribute name="value" isOptional="true" datatype="int"/>
+                    <attribute name="inclusive" isOptional="true" datatype="bl"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <dataType name="SXCM_INT" represents="count">
+                    <desc language="en-US">Set Component of Integer</desc>
+                    <dataType name="IVL_INT" represents="complex">
+                        <desc language="en-US">Interval of Integer</desc>
+                        <attribute name="value" isOptional="true" datatype="int"/>
+                        <attribute name="operator" isOptional="true" datatype="cs">
+                            <vocabulary code="A"/>
+                            <vocabulary code="E"/>
+                            <vocabulary code="H"/>
+                            <vocabulary code="I"/>
+                            <vocabulary code="P"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:low" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_INT" conformance="O" isMandatory="false"/>
+                        <element name="hl7:center" minimumMultiplicity="0" maximumMultiplicity="1" datatype="INT" conformance="O" isMandatory="false"/>
+                        <element name="hl7:width" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:high" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_INT" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="value" isOptional="true" datatype="int"/>
+                    <attribute name="operator" isOptional="true" datatype="cs">
+                        <vocabulary code="A"/>
+                        <vocabulary code="E"/>
+                        <vocabulary code="H"/>
+                        <vocabulary code="I"/>
+                        <vocabulary code="P"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <flavor name="INT.NONNEG" realm="UV">
+                    <desc language="en-US">Interval of Integer, non-negative</desc>
+                    <attribute name="value" isOptional="true" datatype="int">
+                        <property minValue="0"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <flavor name="INT.POS" realm="UV">
+                    <desc language="en-US">Interval of Integer, positive</desc>
+                    <attribute name="value" isOptional="true" datatype="int">
+                        <property minValue="1"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <attribute name="value" isOptional="true" datatype="int"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            </dataType>
+            <dataType name="MO" represents="quantity count">
+                <desc language="en-US">Monetary Amount</desc>
+                <dataType name="IVXB_MO" represents="count">
+                    <desc language="en-US">Interval Boundary of Monetary Amount</desc>
+                    <attribute name="value" isOptional="true" datatype="real"/>
+                    <attribute name="currency" isOptional="true" datatype="cs"/>
+                    <attribute name="inclusive" isOptional="true" datatype="bl"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <dataType name="SXCM_MO" represents="complex code duration quantity">
+                    <desc language="en-US">Set Component of Monetary Amount</desc>
+                    <dataType name="IVL_MO" represents="complex">
+                        <desc language="en-US">Interval of Monetary Amount</desc>
+                        <attribute name="value" isOptional="true" datatype="real"/>
+                        <attribute name="currency" isOptional="true" datatype="cs"/>
+                        <attribute name="operator" isOptional="true" datatype="cs">
+                            <vocabulary code="A"/>
+                            <vocabulary code="E"/>
+                            <vocabulary code="H"/>
+                            <vocabulary code="I"/>
+                            <vocabulary code="P"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:low" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_MO" conformance="O" isMandatory="false"/>
+                        <element name="hl7:center" minimumMultiplicity="0" maximumMultiplicity="1" datatype="MO" conformance="O" isMandatory="false"/>
+                        <element name="hl7:width" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:high" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_MO" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="value" isOptional="true" datatype="real"/>
+                    <attribute name="currency" isOptional="true" datatype="cs"/>
+                    <attribute name="operator" isOptional="true" datatype="cs">
+                        <vocabulary code="A"/>
+                        <vocabulary code="E"/>
+                        <vocabulary code="H"/>
+                        <vocabulary code="I"/>
+                        <vocabulary code="P"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <attribute name="value" isOptional="true" datatype="real"/>
+                <attribute name="currency" isOptional="true" datatype="cs"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            </dataType>
+            <dataType name="PQ" represents="complex decimal duration ordinal quantity count">
+                <desc language="en-US">Physical Quantity</desc>
+                <dataType name="IVXB_PQ" represents="count">
+                    <desc language="en-US">Interval Boundary of Physical Quantity</desc>
+                    <attribute name="value" isOptional="true" datatype="real"/>
+                    <attribute name="unit" isOptional="true" datatype="int"/>
+                    <attribute name="inclusive" isOptional="true" datatype="bl"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                    <element name="hl7:translation" minimumMultiplicity="0" maximumMultiplicity="*" datatype="PQR" conformance="O" isMandatory="false"/>
+                </dataType>
+                <dataType name="RTO_PQ_PQ" represents="complex quantity">
+                    <desc language="en-US">Ratio Physical Quantity / Physical Quantity</desc>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                    <element name="hl7:numerator" minimumMultiplicity="1" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                    <element name="hl7:denominator" minimumMultiplicity="1" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                </dataType>
+                <dataType name="SXCM_PQ" represents="complex code duration quantity">
+                    <desc language="en-US">Set Component of Physical Quantity</desc>
+                    <dataType name="IVL_PQ" represents="complex">
+                        <desc language="en-US">Interval of Physical Quantity</desc>
+                        <dataType name="BXIT_IVL_PQ" represents="complex quantity">
+                            <desc language="en-US">BAG of Interval of Physical Quantities</desc>
+                            <attribute name="qty" isOptional="true" datatype="int"/>
+                            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        </dataType>
+                        <attribute name="value" isOptional="true" datatype="real"/>
+                        <attribute name="unit" isOptional="true" datatype="cs"/>
+                        <attribute name="operator" isOptional="true" datatype="cs">
+                            <vocabulary code="A"/>
+                            <vocabulary code="E"/>
+                            <vocabulary code="H"/>
+                            <vocabulary code="I"/>
+                            <vocabulary code="P"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:low" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:center" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:width" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:high" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_PQ" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="value" isOptional="true" datatype="int"/>
+                    <attribute name="unit" isOptional="true" datatype="cs"/>
+                    <attribute name="operator" isOptional="true" datatype="cs">
+                        <vocabulary code="A"/>
+                        <vocabulary code="E"/>
+                        <vocabulary code="H"/>
+                        <vocabulary code="I"/>
+                        <vocabulary code="P"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <attribute name="value" isOptional="true" datatype="int"/>
+                <attribute name="unit" isOptional="true" datatype="cs"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="hl7:translation" minimumMultiplicity="0" maximumMultiplicity="*" datatype="PQR" conformance="O" isMandatory="false"/>
+            </dataType>
+            <dataType name="REAL" represents="count">
+                <desc language="en-US">Real</desc>
+                <dataType name="IVXB_REAL" represents="count">
+                    <desc language="en-US">Interval Boundary of Real</desc>
+                    <attribute name="value" isOptional="true" datatype="int"/>
+                    <attribute name="inclusive" isOptional="true" datatype="bl"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <dataType name="SXCM_REAL" represents="count">
+                    <desc language="en-US">Set Component of Real</desc>
+                    <dataType name="IVL_REAL" represents="complex">
+                        <desc language="en-US">Interval of Real</desc>
+                        <attribute name="value" isOptional="true" datatype="real"/>
+                        <attribute name="operator" isOptional="true" datatype="cs">
+                            <vocabulary code="A"/>
+                            <vocabulary code="E"/>
+                            <vocabulary code="H"/>
+                            <vocabulary code="I"/>
+                            <vocabulary code="P"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:low" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_REAL" conformance="O" isMandatory="false"/>
+                        <element name="hl7:center" minimumMultiplicity="0" maximumMultiplicity="1" datatype="REAL" conformance="O" isMandatory="false"/>
+                        <element name="hl7:width" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:high" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_REAL" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="value" isOptional="true" datatype="real"/>
+                    <attribute name="operator" isOptional="true" datatype="cs">
+                        <vocabulary code="A"/>
+                        <vocabulary code="E"/>
+                        <vocabulary code="H"/>
+                        <vocabulary code="I"/>
+                        <vocabulary code="P"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <flavor name="REAL.NONNEG" realm="UV">
+                    <desc language="en-US">Real, non-negative</desc>
+                    <attribute name="value" isOptional="true" datatype="real">
+                        <property minValue="0"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <flavor name="REAL.POS" realm="UV">
+                    <desc language="en-US">Real, positive</desc>
+                    <attribute name="value" isOptional="true" datatype="real">
+                        <property minValue="1"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <attribute name="value" isOptional="true" datatype="real"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            </dataType>
+            <dataType name="TS" represents="date datetime">
+                <desc language="en-US">Time Stamp</desc>
+                <dataType name="IVXB_TS" represents="date datetime">
+                    <desc language="en-US">Interval Boundary of Time Stamp</desc>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="inclusive" isOptional="true" datatype="bl"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <dataType name="SXCM_TS" represents="complex code date datetime duration quantity">
+                    <desc language="en-US">Set Component of Time Stamp</desc>
+                    <dataType name="IVL_TS" represents="duration">
+                        <desc language="en-US">Interval of Time Stamp</desc>
+                        <attribute name="value" isOptional="true" datatype="ts"/>
+                        <attribute name="operator" isOptional="true" datatype="cs">
+                            <vocabulary code="A"/>
+                            <vocabulary code="E"/>
+                            <vocabulary code="H"/>
+                            <vocabulary code="I"/>
+                            <vocabulary code="P"/>
+                        </attribute>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:low" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_TS" conformance="O" isMandatory="false"/>
+                        <element name="hl7:center" minimumMultiplicity="0" maximumMultiplicity="1" datatype="TS" conformance="O" isMandatory="false"/>
+                        <element name="hl7:width" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                        <element name="hl7:high" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVXB_TS" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <dataType name="PIVL_TS" represents="complex date datetime duration quantity">
+                        <desc language="en-US">Periodic Interval of Timezone</desc>
+                        <attribute name="value" isOptional="true" datatype="ts"/>
+                        <attribute name="alignment" isOptional="true" datatype="cs">
+                            <vocabulary code="CD"/>
+                            <vocabulary code="CH"/>
+                            <vocabulary code="CM"/>
+                            <vocabulary code="CN"/>
+                            <vocabulary code="CS"/>
+                            <vocabulary code="CW"/>
+                            <vocabulary code="CY"/>
+                            <vocabulary code="D"/>
+                            <vocabulary code="DM"/>
+                            <vocabulary code="DW"/>
+                            <vocabulary code="DY"/>
+                            <vocabulary code="H"/>
+                            <vocabulary code="HD"/>
+                            <vocabulary code="J"/>
+                            <vocabulary code="M"/>
+                            <vocabulary code="MY"/>
+                            <vocabulary code="N"/>
+                            <vocabulary code="NH"/>
+                            <vocabulary code="S"/>
+                            <vocabulary code="SN"/>
+                            <vocabulary code="W"/>
+                            <vocabulary code="WY"/>
+                            <vocabulary code="Y"/>
+                        </attribute>
+                        <attribute name="institutionSpecified" isOptional="true" datatype="bl"/>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="phase" minimumMultiplicity="0" maximumMultiplicity="1" datatype="IVL_TS" conformance="O" isMandatory="false"/>
+                        <element name="period" minimumMultiplicity="0" maximumMultiplicity="1" datatype="PQ" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <dataType name="EIVL_TS" represents="code">
+                        <desc language="en-US">Event-related time interval</desc>
+                        <attribute name="value" isOptional="true" datatype="ts"/>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:event" minimumMultiplicity="0" maximumMultiplicity="*" datatype="EIVL.event" conformance="O" isMandatory="false"/>
+                        <element name="hl7:offset" minimumMultiplicity="0" maximumMultiplicity="*" datatype="IVL_PQ" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <dataType name="SXPR_TS" represents="complex date datetime duration">
+                        <desc language="en-US">Parenthetic Set Expression of Time Stamp</desc>
+                        <attribute name="value" isOptional="true" datatype="ts"/>
+                        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                        <element name="hl7:comp" minimumMultiplicity="0" maximumMultiplicity="*" datatype="SXCM_TS" conformance="O" isMandatory="false"/>
+                    </dataType>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="operator" isOptional="true" datatype="cs">
+                        <vocabulary code="A"/>
+                        <vocabulary code="E"/>
+                        <vocabulary code="H"/>
+                        <vocabulary code="I"/>
+                        <vocabulary code="P"/>
+                    </attribute>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </dataType>
+                <flavor name="TS.DATE" realm="UV">
+                    <desc language="en-US">Date</desc>
+                    <operationalization language="en-US">May only contain a date value YYYYMMDD (or YYYYMM or YYYY)</operationalization>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <flavor name="TS.DATE.FULL" realm="UV">
+                    <desc language="en-US">Date</desc>
+                    <operationalization language="en-US">Shall contain reference to a particular day</operationalization>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <flavor name="TS.DATE.MIN" realm="UV">
+                    <desc language="en-US">Date</desc>
+                    <operationalization language="en-US">Shall be at least YYYYMMDD</operationalization>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <flavor name="TS.DATETIME.MIN" realm="UV">
+                    <desc language="en-US">Date</desc>
+                    <operationalization language="en-US">Shall be at least YYYYMMDDhhmmss</operationalization>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <flavor name="TS.DATETIMETZ.MIN" realm="UV">
+                    <desc language="en-US">Date</desc>
+                    <operationalization language="en-US">Shall be at least YYYYMMDDhhmmss[+-]nnnn</operationalization>
+                    <attribute name="value" isOptional="true" datatype="ts"/>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                </flavor>
+                <attribute name="value" isOptional="true" datatype="ts"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            </dataType>
+            <dataType name="RTO_QTY_QTY" represents="complex quantity">
+                <desc language="en-US">Ratio Quantity / Quantity</desc>
+                <dataType name="RTO" represents="complex quantity">
+                    <desc language="en-US">Ratio Quantity / Quantity</desc>
+                    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                    <element name="hl7:numerator" minimumMultiplicity="1" maximumMultiplicity="1" datatype="QTY" conformance="O" isMandatory="false"/>
+                    <element name="hl7:denominator" minimumMultiplicity="1" maximumMultiplicity="1" datatype="QTY" conformance="O" isMandatory="false"/>
+                </dataType>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="hl7:numerator" minimumMultiplicity="1" maximumMultiplicity="1" datatype="QTY" conformance="O" isMandatory="false"/>
+                <element name="hl7:denominator" minimumMultiplicity="1" maximumMultiplicity="1" datatype="QTY" conformance="O" isMandatory="false"/>
+            </dataType>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+            <attribute name="xsi:type" isOptional="true" datatype="cs"/>
+        </dataType>
+        <dataType name="SD.TEXT" represents="string text">
+            <desc language="en-US">Structured Document Text</desc>
+        </dataType>
+        <dataType name="URL" represents="blob complex identifier string">
+            <desc language="en-US">Universal Resource Locator</desc>
+            <dataType name="TEL" represents="blob complex identifier string">
+                <desc language="en-US">Telecommunication Address</desc>
+                <attribute name="use" isOptional="true" datatype="set_cs"/>
+                <attribute name="value" isOptional="true" datatype="st"/>
+                <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+                <element name="hl7:useablePeriod" minimumMultiplicity="0" maximumMultiplicity="*" datatype="SXCM_TS" conformance="O" isMandatory="false"/>
+            </dataType>
+            <attribute name="value" isOptional="true" datatype="st"/>
+            <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+        </dataType>
+        <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+        <attribute name="xsi:type" isOptional="true" datatype="cs"/>
+    </dataType>
+    <atomicDataType name="bin" represents="blob string"/>
+    <atomicDataType name="bl" represents="boolean code">
+        <flavor name="bn" realm="UV"/>
+    </atomicDataType>
+    <atomicDataType name="bn" represents="boolean code"/>
+    <atomicDataType name="cs" represents="code"/>
+    <atomicDataType name="int" represents="ordinal count"/>
+    <atomicDataType name="oid" represents="identifier"/>
+    <atomicDataType name="ruid" represents="identifier"/>
+    <atomicDataType name="uuid" represents="identifier"/>
+    <atomicDataType name="uid" represents="identifier">
+        <atomicDataType name="oid" realm="UV"/>
+        <atomicDataType name="uuid" realm="UV"/>
+        <atomicDataType name="ruid" realm="UV"/>
+    </atomicDataType>
+    <atomicDataType name="real" represents="decimal double"/>
+    <atomicDataType name="set_cs" represents="code">
+        <atomicDataType name="cs" represents="code"/>
+    </atomicDataType>
+    <atomicDataType name="st" represents="string">
+        <atomicDataType name="bin" represents="blob string"/>
+        <atomicDataType name="bl" represents="boolean code"/>
+        <atomicDataType name="bn" represents="boolean code"/>
+        <atomicDataType name="cs" represents="code"/>
+        <atomicDataType name="int" represents="ordinal count"/>
+        <atomicDataType name="oid" represents="identifier"/>
+        <atomicDataType name="ruid" represents="identifier"/>
+        <atomicDataType name="uuid" represents="identifier"/>
+        <atomicDataType name="uid" represents="identifier"/>
+        <atomicDataType name="oid" realm="UV"/>
+        <atomicDataType name="uuid" realm="UV"/>
+        <atomicDataType name="ruid" realm="UV"/>
+        <atomicDataType name="real" represents="decimal double"/>
+        <atomicDataType name="cs" represents="code"/>
+        <atomicDataType name="ts" represents="timestamp"/>
+        <atomicDataType name="url" represents="blob complex identifier string"/>
+    </atomicDataType>
+    <atomicDataType name="ts" represents="timestamp"/>
+    <atomicDataType name="xs:ID" represents="identifier"/>
+    <atomicDataType name="xs:IDREF" represents="identifier"/>
+    <atomicDataType name="xs:IDREFS" represents="identifier"/>
+    <atomicDataType name="url" represents="blob complex identifier string"/>
+    <attribute name="nullFlavor" isOptional="true" datatype="cs"/>
+    <attribute name="xsi:type" isOptional="true" datatype="cs"/>
+</supportedDataTypes>

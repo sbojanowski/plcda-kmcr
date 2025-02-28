@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    DECOR internationalization i18n schema
+    Copyright (C) 2009-2015 Dr. Kai U. Heitmann
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+    
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- include DECOR datatype defintions -->
+    <xs:include schemaLocation="DECOR-datatypes.xsd"/>
+    
+    <xs:element name="messages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="text" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <xs:attribute name="key" type="xs:string" use="required">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="en-US">A key string as an index</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="packageRoot" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Position relative to /db/apps. E.g. decor/services or ada/core</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+        <xs:unique name="uniqueKey">
+            <xs:selector xpath="entry"/>
+            <xs:field xpath="@key"/>
+        </xs:unique>
+    </xs:element>
+    
+    <xs:element name="text">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+            </xs:sequence>
+            <xs:attribute name="language" type="LanguageCode" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

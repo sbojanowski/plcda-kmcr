@@ -1,0 +1,1002 @@
+<!-- 
+    
+    ISO TS 13582 compliant OID schema vDraft 2012-02-25
+    Health Informatics — Communication model and XML-interface specification for OID Registries (Sharing of OID registry information in healthcare)
+    
+    Copyright (C) 2009-2015  Nictiz
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+    
+-->
+<xsd:schema xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://purl.oclc.org/dsdl/schematron" elementFormDefault="qualified">
+    <xsd:include schemaLocation="iso-21090_hl7-r2_datatypes.xsd"/>
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en-US">ISO 13582 Draft 2012-02-04 - source http://wiki.hl7.de/index.php/ISO_TC_215_-_ISO_TS_13582</xsd:documentation>
+        <xsd:documentation xml:lang="en-US">Date: 2012-03-05</xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="registry">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <sch:pattern id="Registry">
+                    <sch:rule context="registry">
+                        <!--sch:assert id="rg-so" role="warning" test="scopedOID">rg-so: If the OID registry is responsible for issuing/registering a root OID, this OID should be listed in scopedOIDs.</sch:assert-->
+                        <sch:assert id="rg-ds" role="error" test="not(description) or description[starts-with(@language,'en')]">rg-ds: If at least one description element is present one of the description's language code shall be English (“en”, “en-US” etc.).</sch:assert>
+                    </sch:rule>
+                    <!--<sch:rule context="registry/oid[status/@code='completed']">
+                        <sch:let name="oid" value="dotNotation/@value"/>
+                        <sch:assert id="rg-uk-completed" role="error" test="not(preceding-sibling::oid[dotNotation/@value=$oid])">rg-uk-completed: There SHALL NOT be duplicate OIDs with status 'completed'. (Found <sch:value-of select="dotNotation/@value"/>)</sch:assert>
+                    </sch:rule>-->
+                    <sch:rule context="registry/validTime">
+                        <sch:assert id="rg-vt" role="error" test="low">rg-vt: A validTime element shall be present and of datatype IVL_TS with at least the low child element populated.</sch:assert>
+                    </sch:rule>
+                    <sch:rule context="registry/description">
+                        <sch:assert id="rg-ds-ed-lc-1" role="error" test="@language">ed-lc: An element of data type ED SHALL have a language code represented in @language.</sch:assert>
+                        <sch:assert id="rg-ds-ed-lc-2" role="error" test="@mediaType='text/plain' or @mediaType='text/html'">ed-mt: An element of data type ED SHALL have a @mediaType of "text/plain" or "text/html". (Found <sch:value-of select="@mediaType"/>)</sch:assert>
+                    </sch:rule>
+                </sch:pattern>
+                <sch:pattern id="Oid">
+                    <sch:rule context="registry/oid">
+                        <sch:assert id="oi-ds" role="error" test="description[starts-with(@language,'en')]">oi-ds: There SHALL be one description instance with language code English (“en”, “en-US” etc.).</sch:assert>
+                    </sch:rule>
+                    <sch:rule context="registry/oid/description">
+                        <sch:assert id="oi-ds-ed-lc-1" role="error" test="@language">ed-lc: An element of data type ED SHALL have a language code represented in @language.</sch:assert>
+                        <sch:assert id="oi-ds-ed-lc-2" role="error" test="@mediaType='text/plain' or @mediaType='text/html'">ed-mt: An element of data type ED SHALL have a @mediaType of "text/plain" or "text/html". (Found <sch:value-of select="@mediaType"/>)</sch:assert>
+                    </sch:rule>
+                </sch:pattern>
+                <sch:pattern id="HistoryAnnotation">
+                    <sch:rule context="registry/oid/historyAnnotation/text">
+                        <sch:assert id="hi-te-ed-lc-1" role="error" test="@language">ed-lc: An element of data type ED SHALL have a language code represented in @language.</sch:assert>
+                        <sch:assert id="hi-te-ed-lc-2" role="error" test="@mediaType='text/plain' or @mediaType='text/html'">ed-mt: An element of data type ED SHALL have a @mediaType of "text/plain" or "text/html". (Found <sch:value-of select="@mediaType"/>)</sch:assert>
+                    </sch:rule>
+                </sch:pattern>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                
+                <!-- CLASS ATTRIBUTES -->
+                
+                <!-- valid time -->
+                <xsd:element name="validTime" type="IVL_TS" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">This is the validity time interval, i.e. the begin (and end) time when this registry is/was
+                            responsible for registering OIDs. This can be a list of intervals.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- scoped OIDs -->
+                <xsd:element name="scopedOID" type="ST.OID" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">List of scoped root OIDs, i.e. the OIDs for which this OID registry is responsible for
+                            registration.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- name of the registry -->
+                <xsd:element name="name" type="ST" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Official name of the OID registry</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- description of the registry, multiple languages possible -->
+                <xsd:element name="description" type="ED" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">A description of the OID registry, possible in multiple languages</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- CLASS ASSOCIATIONS -->
+                
+                <!-- association to hosting person -->
+                <xsd:element name="person" type="PersonType" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Contact person(s)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- association to hosting organization -->
+                <xsd:element name="hostingOrganization" type="OrganizationType" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Hosting organization(s)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- association to 0..* OID definitions -->
+                <xsd:element ref="oid" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">List of OIDs</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+        <xsd:unique name="uniqueScopedOID">
+            <xsd:selector xpath="scopedOID"/>
+            <xsd:field xpath="@value"/>
+        </xsd:unique>
+        <!-- Note: gives illegal error in the case of duplicate OIDs with the same status. Rely on schematron instead -->
+        <xsd:unique name="uniqueOID">
+            <xsd:selector xpath="oid"/>
+            <xsd:field xpath="dotNotation/@value"/>
+            <xsd:field xpath="status/@code"/>
+        </xsd:unique>
+    </xsd:element>
+    <xsd:complexType name="PersonType">
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- person name -->
+            <xsd:element name="name" type="EN" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">person's name</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- person addr -->
+            <xsd:element name="addr" type="AD" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">person's address</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- person telecom -->
+            <xsd:element name="telecom" type="TEL" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">person's telecommunication contact</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="OrganizationType">
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- organization ids -->
+            <xsd:element name="id" type="ST.OID" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">id (OID) of the organization</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- organization name -->
+            <xsd:element name="name" type="EN" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">organization's name</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- organization addr -->
+            <xsd:element name="addr" type="AD" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">organization's address</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- organization telecom -->
+            <xsd:element name="telecom" type="TEL" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">organization's telecommunication contact</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="oid">
+        <xsd:complexType>
+            <xsd:sequence>
+
+                <!-- CLASS ATTRIBUTES -->
+
+                <!-- dotNotation -->
+                <xsd:element name="dotNotation" type="ST.OID" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">The OID in dot notation of SNMP or ASN.1/XER.</xsd:documentation>
+                        <xsd:documentation xml:lang="en-US">2.16.528</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- asn1Notation -->
+                <xsd:element name="asn1Notation" type="ST.ASN1" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">The OID in ASN.1 notation with (optional) identifiers and numbers.</xsd:documentation>
+                        <xsd:documentation xml:lang="en-US">{joint-iso-itu-t(2) country(16) nl(528)}</xsd:documentation>
+                        <xsd:documentation xml:lang="en-US">{itu-t(0) recommendation(0) a(1)}</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- iriNotation -->
+                <xsd:element name="iriNotation" type="ST.IRI" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">The OID in Internationalized Resource Identifier (IRI) notation.</xsd:documentation>
+                        <xsd:documentation xml:lang="en-US">oid:/Country/528</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- symbolicName -->
+                <xsd:element name="symbolicName" type="ST.SYMB" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">A symbolic short name, unique among the siblings of the arc of the OID. The ISO rules on
+                            Secondary Arc Identifiers, as laid out in Rec. ITU-T | ISO/IEC 9834-1 Procedures for Registration Authorities, section
+                            6.2.2, apply: - identifiers of an arc are required to commence with a lowercase letter, and to contain only letters,
+                            digits, and hyphens. - the last characters shall not be a hyphen - there shall be no two consecutive hyphens in the
+                            name</xsd:documentation>
+                        <xsd:documentation xml:lang="en-US">nl</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- category -->
+                <xsd:element name="category" type="OIDcategories" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">The type/category of the OID; enumeration, values see value set OIDCategory. There are
+                            actually two main types of OIDs: leafs (id of an object), and nodes representing an ontological branch. The types of node
+                            OID may be
+                            - a registration authority (RA) or
+                            - a structure for the management of OIDs. The proposal for sub categories of leaf OIDs are
+                              - identifiers of an instance of an object (for example a person)
+                              - namespace identifiers (for example code systems, value sets)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- status -->
+                <xsd:element name="status" type="OIDstatusCodes" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Status of the OID. This is an enumeration, for values see value set
+                            OIDstatusCodes</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- creationDate -->
+                <xsd:element name="creationDate" type="TS" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">The creationDate is used to describe when the OID was first registered. It is not the date
+                            when the OID description is submitted to the OID repository. The creationDate, once set, never changes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- realm -->
+                <xsd:element name="realm" type="CS" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">In some cases OIDs may apply to a specific county/realm only, e.g. the namespace
+                            identifiers for the US Social Security Number (SSN) or the Dutch Citizen Service Number (BSN) or the codes system
+                            representing ICD-10 International Classification of Diseases 10th Revision for the use in Germany only (ICD10gm). This can
+                            be indicated by realm which is either the code of country or "UV" for universal. For values see code system
+                            CountryCodes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- description -->
+                <xsd:element name="description" type="ED" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">This element contains a free text description of the OID ("what is the OID?"). The text
+                            typically contains an explanation but also can contain: - explicit versioning aspects - licensing information -
+                            Intellectual Property rights information - trademarks. This element is repeatable for each language. The datatype ED
+                            allows for a thumbnail child element. A thumbnail may be populated describing a short description of the OID (sometimes
+                            referred to as identifier name).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- CLASS ASSOCIATIONS -->
+               
+                <!-- registration authority -->
+                <xsd:element name="registrationAuthority" type="RegistrationAuthorityType" minOccurs="1" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Registration Authority</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- responsible authority -->
+                <xsd:element name="responsibleAuthority" type="ResponsibleAuthorityType" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Responsible Authority</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- submitting authority -->
+                <xsd:element name="submittingAuthority" type="SubmittingAuthorityType" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Submitting Authority</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- additional property -->
+                <xsd:element name="additionalProperty" type="AdditionalPropertyType" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">Additional Property</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- history annotation -->
+                <xsd:element name="historyAnnotation" type="HistoryAnnotationType" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">History Annotation</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                
+                <!-- reference -->
+                <xsd:element name="reference" type="ReferenceType" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en-US">References</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="RegistrationAuthorityType">
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- role code -->
+            <xsd:element name="code" type="RoleCodes" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">The code holds information about the role type of the RA. Valid codes are listed in
+                        RoleCodes.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- CLASS ASSOCIATIONS -->
+            <!-- association to person -->
+            <xsd:element name="person" type="PersonType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Contact person(s)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- association to organization -->
+            <xsd:element name="scopingOrganization" type="OrganizationType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Scoping Organization</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResponsibleAuthorityType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">A Responsible (Managing) Authority (MA) is used to indicate the person (if known) and organization who is currently in charge of managing the OID.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- role code -->
+            <xsd:element name="code" type="RoleCodes" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">The code holds information about the role type of the ResponsibleAuthority. Valid codes are listed in
+                        RoleCodes.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- status code -->
+            <xsd:element name="statusCode" type="RoleStatus" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">The statusCode holds information about the status of the ResponsibleAuthority. Valid codes are listed in
+                        RoleStatus.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- valid time -->
+            <xsd:element name="validTime" type="IVL_TS" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">This is an interval of time, representing the period when the ResponsibleAuthority is/was responsible for the
+                        object that is identified by the OID. If the ResponsibleAuthority is still responsible, only validTime.low is
+                        populated.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- CLASS ASSOCIATIONS -->
+            <!-- association to person -->
+            <xsd:element name="person" type="PersonType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Contact person(s)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- association to organization -->
+            <xsd:element name="scopingOrganization" type="OrganizationType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Scoping Organization</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SubmittingAuthorityType">
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- role code -->
+            <xsd:element name="code" type="RoleCodes" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">The code holds information about the role type of the submitting authority. Valid codes are listed in
+                        RoleCodes.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- application date -->
+            <xsd:element name="applicationDate" type="TS" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Date of application (submission or certified submission) of the requested OID.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- CLASS ASSOCIATIONS -->
+            <!-- association to person -->
+            <xsd:element name="person" type="PersonType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Contact person(s)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+             <!-- association to organization -->
+            <xsd:element name="scopingOrganization" type="OrganizationType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Scoping Organization</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="HistoryAnnotationType">
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- annotation date -->
+            <xsd:element name="annotationDate" type="TS" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Date the annotation was created</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- text -->
+            <xsd:element name="text" type="ED" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Annotation text</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ReferenceType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">This class provides a link to - other data sources, code tables, value sets, descriptions etc; typically this is a URL
+                and always points to an object with different semantics than the OID itself. - other OIDs (within or outside this OID registry) in
+                order to be able to express that an OID has been superseded/replaced or that there is a preferred OID.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- reference -->
+            <xsd:element name="ref" type="TEL" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">The referenced URI.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- type -->
+            <xsd:element name="type" type="ReferenceTypeCodes" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">The nature of the reference is coded in the type attribute, for vocabulary see ReferenceType.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- reference -->
+            <xsd:element name="lastVisitedDate" type="TS" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Specifies the date the URI was last visited.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AdditionalPropertyType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">This class reflects additional properties of an OID that might be used to fit business rules that cannot (or should not)
+                be standardized. This includes: - additional categories - additional status information - tags, simple text - coded properties It is
+                made of - attribute, describing the type of the additional property - value, the value of the additional property.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- CLASS ATTRIBUTES -->
+            <!-- attribute -->
+            <xsd:element name="attribute" type="ST" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Additional property type</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- value -->
+            <xsd:element name="value" type="ST" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Additional property value</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ST.OID">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">A character string, with no translations allowed where the string is in OID notation</xsd:documentation>
+            <xsd:appinfo>
+                <sch:pattern id="ST.OIDContentIfNotNull">
+                    <sch:rule abstract="true" id="ST.OID-1">
+                        <sch:assert test="(@nullFlavor or (@value and string-length(@value)&amp;gt;0)) and not(@nullFlavor and @value)"/>
+                    </sch:rule>
+                </sch:pattern>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:restriction base="ST">
+                <xsd:attribute name="value">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:pattern value="\{?\s*(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))*\s*\}?"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ST.ASN1">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">A character string, with no translations allowed where the string is in ASN1 notation</xsd:documentation>
+            <xsd:documentation xml:lang="en-US">X.680 : Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation.</xsd:documentation>
+            <xsd:appinfo>
+                <sch:pattern id="ST.ASN1ContentIfNotNull">
+                    <sch:rule abstract="true" id="ST.ASN1-1">
+                        <sch:assert test="(@nullFlavor or (@value and string-length(@value)&amp;gt;0)) and not(@nullFlavor and @value)"/>
+                    </sch:rule>
+                </sch:pattern>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:restriction base="ST">
+                <xsd:attribute name="value">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <!-- 2DO: check pattern -->
+                            <xsd:pattern value="\{?\s*([a-z][a-zA-Z0-9\-]*\s*((\s*(0|[1-9][0-9]*)\s*\))?|(0|[1-9][0-9]*))\s*){2,}\s*\}?"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ST.IRI">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">A character string, with no translations allowed where the string is in IRI notation</xsd:documentation>
+            <xsd:appinfo>
+                <sch:pattern id="ST.IRIContentIfNotNull">
+                    <sch:rule abstract="true" id="ST.IRI-1">
+                        <sch:assert test="(@nullFlavor or (@value and string-length(@value)&amp;gt;0)) and not(@nullFlavor and @value)"/>
+                    </sch:rule>
+                </sch:pattern>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:restriction base="ST">
+                <xsd:attribute name="value">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <!-- 2DO: pattern to follow -->
+                            <xsd:pattern value=".*"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ST.SYMB">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en-US">A character string, with no translations allowed where the string is a Symbolic name</xsd:documentation>
+            <xsd:appinfo>
+                <sch:pattern id="ST.SYMBContentIfNotNull">
+                    <sch:rule abstract="true" id="ST.SYMB-1">
+                        <sch:assert test="(@nullFlavor or (@value and string-length(@value)&amp;gt;0)) and not(@nullFlavor and @value)"/>
+                    </sch:rule>
+                </sch:pattern>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:restriction base="ST">
+                <xsd:attribute name="value">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:pattern value="[a-z]([a-z]|[A-Z]|[0-9]|[\-][^-])*([^-])?"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="OIDcategories">
+        <xsd:complexContent>
+            <xsd:restriction base="CD">
+                <xsd:attribute name="code" type="list_OIDcategories"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:simpleType name="list_OIDcategories">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="N">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">node</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">OID Node</xforms:label>
+                        <xforms:label xml:lang="en-US">OID Node</xforms:label>
+                        <xforms:label xml:lang="de-DE">OID Node</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NRA">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">registration authority (RA)</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">OID Registratieautoriteit</xforms:label>
+                        <xforms:label xml:lang="en-US">OID Registration authority</xforms:label>
+                        <xforms:label xml:lang="de-DE">OID Registration authority</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="NMN">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">structure for the management of OIDs (it is not good practice but we know that some of these nodes in some
+                        registries also identify objects, which should not be)</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">OID Managementnode</xforms:label>
+                        <xforms:label xml:lang="en-US">OID Management node</xforms:label>
+                        <xforms:label xml:lang="de-DE">OID Management node</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="L">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">leaf</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">OID Leaf</xforms:label>
+                        <xforms:label xml:lang="en-US">OID Leaf</xforms:label>
+                        <xforms:label xml:lang="de-DE">OID Leaf</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LIO">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">identifies an instance of an object</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">OID Instance</xforms:label>
+                        <xforms:label xml:lang="en-US">OID Instance</xforms:label>
+                        <xforms:label xml:lang="de-DE">OID Instance</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LNS">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">a namespace identifier</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">OID Namespace</xforms:label>
+                        <xforms:label xml:lang="en-US">OID Namespace</xforms:label>
+                        <xforms:label xml:lang="de-DE">OID Namespace</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="OIDstatusCodes">
+        <xsd:complexContent>
+            <xsd:restriction base="CD">
+                <xsd:attribute name="code" type="list_OIDstatusCodes"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:simpleType name="list_OIDstatusCodes">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="pending">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID assignment pending</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Open</xforms:label>
+                        <xforms:label xml:lang="en-US">Pending</xforms:label>
+                        <xforms:label xml:lang="de-DE">Pending</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="completed">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID assignment complete</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Gereed</xforms:label>
+                        <xforms:label xml:lang="en-US">Completed</xforms:label>
+                        <xforms:label xml:lang="de-DE">Completed</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="retired">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID retired/withdrawn</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Verlopen/teruggetrokken</xforms:label>
+                        <xforms:label xml:lang="en-US">Retired/withdrawn</xforms:label>
+                        <xforms:label xml:lang="de-DE">Retired/withdrawn</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="unknown">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID status unknown</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Onbekend</xforms:label>
+                        <xforms:label xml:lang="en-US">Unknown</xforms:label>
+                        <xforms:label xml:lang="de-DE">Unbekannt</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="ReferenceTypeCodes">
+        <xsd:complexContent>
+            <xsd:restriction base="CD">
+                <xsd:attribute name="code" type="list_ReferenceTypeCodes"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:simpleType name="list_ReferenceTypeCodes">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="RPLC">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">replaced by OID</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Vervangen door OID</xforms:label>
+                        <xforms:label xml:lang="en-US">Replaced by OID</xforms:label>
+                        <xforms:label xml:lang="de-DE">Replaced by OID</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="PREF">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">preferred OID</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Voorkeur OID</xforms:label>
+                        <xforms:label xml:lang="en-US">Preferred OID</xforms:label>
+                        <xforms:label xml:lang="de-DE">Preferred OID</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="LINK">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">link access (to code and value set tables)</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Koppeling</xforms:label>
+                        <xforms:label xml:lang="en-US">Link access</xforms:label>
+                        <xforms:label xml:lang="de-DE">Link access</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="IDSD">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">identification scheme documentation</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Identificatiemechanisme</xforms:label>
+                        <xforms:label xml:lang="en-US">Identification scheme</xforms:label>
+                        <xforms:label xml:lang="de-DE">Identification scheme</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="RoleCodes">
+        <xsd:complexContent>
+            <xsd:restriction base="CD">
+                <xsd:attribute name="code" type="list_RoleCodes"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:simpleType name="list_RoleCodes">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="PRI">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">primary</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Primair</xforms:label>
+                        <xforms:label xml:lang="en-US">Primary</xforms:label>
+                        <xforms:label xml:lang="de-DE">Primary</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SEC">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">secondary</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Secundair</xforms:label>
+                        <xforms:label xml:lang="en-US">Secundairy</xforms:label>
+                        <xforms:label xml:lang="de-DE">Secundairy</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="OBO">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">on behalf of</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Ten behoeve van</xforms:label>
+                        <xforms:label xml:lang="en-US">On behalf of</xforms:label>
+                        <xforms:label xml:lang="de-DE">On behalf of</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CON">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">contact person</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Contactpersoon</xforms:label>
+                        <xforms:label xml:lang="en-US">Contact person</xforms:label>
+                        <xforms:label xml:lang="de-DE">Contact person</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="RoleStatus">
+        <xsd:complexContent>
+            <xsd:restriction base="CD">
+                <xsd:attribute name="code" type="list_RoleStatus"/>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:simpleType name="list_RoleStatus">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="active">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">active</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Actief</xforms:label>
+                        <xforms:label xml:lang="en-US">Active</xforms:label>
+                        <xforms:label xml:lang="de-DE">Active</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="terminated">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">terminated</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Beëindigd</xforms:label>
+                        <xforms:label xml:lang="en-US">Terminated</xforms:label>
+                        <xforms:label xml:lang="de-DE">Terminated</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- informative additional property suggestions -->
+    <xsd:simpleType name="additionalPropertyAttributes">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="purpose">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">Formal purpose of the OID, as opposed to the informal purpose read from the description.</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Doel</xforms:label>
+                        <xforms:label xml:lang="en-US">Purpose</xforms:label>
+                        <xforms:label xml:lang="de-DE">Purpose</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="additionalPropertyValues">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="codesystem">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies a code system</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Codesysteem</xforms:label>
+                        <xforms:label xml:lang="en-US">Code system</xforms:label>
+                        <xforms:label xml:lang="de-DE">Code system</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="conceptdomain">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies a concept domain</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Conceptdomein</xforms:label>
+                        <xforms:label xml:lang="en-US">Concept domain</xforms:label>
+                        <xforms:label xml:lang="de-DE">Concept domain</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="conformanceprofile">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies a conformance profile</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Conformanceprofiel</xforms:label>
+                        <xforms:label xml:lang="en-US">Conformance profile</xforms:label>
+                        <xforms:label xml:lang="de-DE">Conformance profile</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="documentartifact">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies a document artifact</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Documentartefact</xforms:label>
+                        <xforms:label xml:lang="en-US">Documentartifact</xforms:label>
+                        <xforms:label xml:lang="de-DE">Documentartifact</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="examples">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID to be used (as a basis) for examples</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Voorbeelden</xforms:label>
+                        <xforms:label xml:lang="en-US">Examples</xforms:label>
+                        <xforms:label xml:lang="de-DE">Examples</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="experimental">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID to be used for experimental/test purposes</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Experimenteel/test</xforms:label>
+                        <xforms:label xml:lang="en-US">Experimental/test</xforms:label>
+                        <xforms:label xml:lang="de-DE">Experimental/test</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="identification">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies an identifier systems and namespaces</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Identificatiesysteem/namespace</xforms:label>
+                        <xforms:label xml:lang="en-US">Identification/namespace</xforms:label>
+                        <xforms:label xml:lang="de-DE">Identification/namespace</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="organization">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies an organizational body or group</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Organisaties/groepen</xforms:label>
+                        <xforms:label xml:lang="en-US">Organizations/groups</xforms:label>
+                        <xforms:label xml:lang="de-DE">Organizations/groups</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="templatehl7v3">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies an HL7 V3 template</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">HL7v3 template</xforms:label>
+                        <xforms:label xml:lang="en-US">HL7v3 template</xforms:label>
+                        <xforms:label xml:lang="de-DE">HL7v3 template</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="valueset">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en-US">OID identifies a value set</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">Waardelijst</xforms:label>
+                        <xforms:label xml:lang="en-US">Value set</xforms:label>
+                        <xforms:label xml:lang="de-DE">Value set</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- ISO 639-1 language + ISO 3166-alpha2 suggestions -->
+    <xsd:simpleType name="language-COUNTRY">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="en-US">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="nl-NL">Engels-VS (ISO 639-1:en) (ISO 3166-2:US)</xsd:documentation>
+                    <xsd:documentation xml:lang="en-US">English-USA (ISO 639-1:en) (ISO 3166-2:US)</xsd:documentation>
+                    <xsd:documentation xml:lang="de-DE">Englisch-VSA (ISO 639-1:en) (ISO 3166-2:US)</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">en-US</xforms:label>
+                        <xforms:label xml:lang="en-US">en-US</xforms:label>
+                        <xforms:label xml:lang="de-DE">en-US</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="nl-NL">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="nl-NL">Nederlands-Nederland (ISO 639-1:nl) (ISO 3166-2:NL)</xsd:documentation>
+                    <xsd:documentation xml:lang="en-US">Dutch-Netherlands (ISO 639-1:nl) (ISO 3166-2:NL)</xsd:documentation>
+                    <xsd:documentation xml:lang="de-DE">Holländisch-Niederlande (ISO 639-1:nl) (ISO 3166-2:NL)</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">nl-NL</xforms:label>
+                        <xforms:label xml:lang="en-US">nl-NL</xforms:label>
+                        <xforms:label xml:lang="de-DE">nl-NL</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="de-DE">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="nl-NL">Duits-Duitsland (ISO 639-1:de) (ISO 3166-2:DE)</xsd:documentation>
+                    <xsd:documentation xml:lang="en-US">Germany-Germany (ISO 639-1:de) (ISO 3166-2:DE)</xsd:documentation>
+                    <xsd:documentation xml:lang="de-DE">Deutsch-Deutschland (ISO 639-1:de) (ISO 3166-2:DE)</xsd:documentation>
+                    <xsd:appinfo>
+                        <xforms:label xml:lang="nl-NL">de-DE</xforms:label>
+                        <xforms:label xml:lang="en-US">de-DE</xforms:label>
+                        <xforms:label xml:lang="de-DE">de-DE</xforms:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- include DECOR datatype defintions -->
+    <xs:include schemaLocation="DECOR-datatypes.xsd"/>
+
+    <xs:element name="decor-parameters">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateSchematron0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the schematron runtime environment the element &lt;switchCreateSchematron1/> should be present; creating schematrons
+                                is skipped with  &lt;switchCreateSchematron0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateSchematron1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the schematron runtime environment the element &lt;switchCreateSchematron1/> should be present; creating schematrons
+                                is skipped with &lt;switchCreateSchematron0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateSchematronWithWrapperIncludes0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should add HL7v3 wrapper schematrons for your locale and if available &lt;switchCreateSchematronWithWrapperIncludes1/> should be present; if these should not be added, e.g. because you are not specifying messageing based 
+                                instances like CDA/CCD/CCR, you can skip these includes &lt;switchCreateSchematronWithWrapperIncludes0/>. If &lt;switchCreateSchematron0/> then this parameter is auto-off</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateSchematronWithWrapperIncludes1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should add HL7v3 wrapper schematrons for your locale and if available &lt;switchCreateSchematronWithWrapperIncludes1/> should be present; if these should not be added, e.g. because you are not specifying messageing based 
+                                instances like CDA/CCD/CCR, you can skip these includes &lt;switchCreateSchematronWithWrapperIncludes0/>. If &lt;switchCreateSchematron0/> then this parameter is auto-off</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateSchematronWithWarningsOnOpen0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">Default. This switch only acts on open templates/elements and no schematron warnings (or errors) will be issued for instances that contain undefined contents. Use &lt;switchCreateSchematronWithWarningsOnOpen1/&gt; to generate warnings in special circumstances. Use 
+                                &lt;switchCreateSchematronClosed1/&gt; to treat the templates/elements as if they were closed to begin with.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateSchematronWithWarningsOnOpen1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">***USE WITH CAUTION***. This switch only acts on open templates/elements and causes the schematron to contain warnings on encountered instance parts that were not defined. While legal from the perspective of open templates, you may still want to be warned when this occurs during 
+                                testing/qualification. The resulting schematrons with this setting are NOT suitable for production use as the warnings could trigger an interpretation that the originating party did something wrong</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateSchematronClosed0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">Default. If the conversion process should close templates and elements, regardless of their definition &lt;switchCreateSchematronClosed1/> should be present; this rules out any element that is not part of the definition. This setting is useful 
+                                for the creation of qualification quality Schematrons, while the default schematrons could be leveraged for production use. If the conversion process should just run with whatever is specified &lt;switchCreateSchematronClosed0/> should be present.
+                                &lt;switchCreateSchematronClosed1/> automatically activates &lt;switchCreateSchematronWithExplicitIncludes1/> because it doesn't make sense to include anything beyond specification.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateSchematronClosed1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">***USE WITH CAUTION***. If the conversion process should close templates and elements, regardless of their definition &lt;switchCreateSchematronClosed1/> should be present; this rules out any element that is not part of the definition.
+                                If the conversion process should just run with whatever is specified &lt;switchCreateSchematronClosed0/> should be present. &lt;switchCreateSchematronClosed1/> automatically activates &lt;switchCreateSchematronWithExplicitIncludes1/> because it 
+                                doesn't make sense to include anything beyond specification. Note that this swtich overrides &lt;switchCreateSchematronWithWarningsOnOpen[01]/&gt; as any open templates/elements are now treated as closed. The resulting schematrons with this setting are NOT suitable for 
+                                production use as the warnings could trigger an interpretation that the originating party did something wrong</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateSchematronWithExplicitIncludes0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should make sure that the main Schematron only includes templates that are explicitly defined &lt;switchCreateSchematronWithExplicitIncludes1/> should be present; if the main Schematron should contain includes 
+                                for any defined template in the scope of this DECOR project &lt;switchCreateSchematronWithExplicitIncludes0/> should be present.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateSchematronWithExplicitIncludes1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should make sure that the main Schematron only includes templates that are explicitly defined &lt;switchCreateSchematronWithExplicitIncludes1/> should be present; if the main Schematron should contain includes 
+                                for any defined template in the scope of this DECOR project &lt;switchCreateSchematronWithExplicitIncludes0/> should be present.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateDocHTML0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the HTML based documentation the element &lt;switchCreateDocHTML1/> should be present; creating HTML is skipped with
+                                &lt;switchCreateDocHTML0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateDocHTML1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the HTML based documentation the element &lt;switchCreateDocHTML1/> should be present; creating HTML is skipped with
+                                &lt;switchCreateDocHTML0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateDocSVG0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the HTML based documentation should be augmented with SVGs (scenarios only currently) the element &lt;switchCreateDocSVG1/> should be present; creating SVG is skipped with
+                                &lt;switchCreateDocHTML0/> and/or &lt;switchCreateDocSVG0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateDocSVG1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the HTML based documentation should be augmented with SVGs (scenarios only currently) the element &lt;switchCreateDocSVG1/> should be present; creating SVG is skipped with
+                                &lt;switchCreateDocHTML0/> and/or &lt;switchCreateDocSVG0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateDocDocbook0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the docbook based documentation the element &lt;switchCreateDocDocbook1/> should be present; creating docbook is
+                                skipped with &lt;switchCreateDocDocbook0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateDocDocbook1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the docbook based documentation the element &lt;switchCreateDocDocbook1/> should be present; creating docbook is
+                                skipped with &lt;switchCreateDocDocbook0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="useLocalAssets0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US"> if the local assets dir ../assets should be used instead of the online version at art-decor.org/ADAR/rv then &lt;useLocalAssets1/> should be present; if
+                                &lt;useLocalAssets0/> is present the online version is used; please be sure that a directory ../assets is available local to the decor html version</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="useLocalAssets1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US"> if the local assets dir ../assets should be used instead of the online version at art-decor.org/ADAR/rv then &lt;useLocalAssets1/> should be present; if
+                                &lt;useLocalAssets0/> is present the online version is used; please be sure that a directory ../assets is available local to the decor html version</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="useLocalLogos0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US"> if the local logos dir ../prefix-logos (prefix = project prefix) should be used instead of the online version at /decor/project/reference/@url then &lt;useLocalLogos1/> should be present; if
+                                &lt;useLocalLogos0/> is present the online version is used; please be sure that a directory ../prefix-logos is available local to the decor html version</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="useLocalLogos1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US"> if the local logos dir ../prefix-logos (prefix = project prefix) should be used instead of the online version at /decor/project/reference/@url then &lt;useLocalLogos1/> should be present; if
+                                &lt;useLocalLogos0/> is present the online version is used; please be sure that a directory ../prefix-logos is available local to the decor html version</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:element name="customLogos" minOccurs="0" maxOccurs="1">
+                	<xs:complexType>
+                		<xs:sequence>
+                			<xs:element name="logo" minOccurs="1" maxOccurs="unbounded">
+                				<xs:complexType>
+                					<xs:attribute name="src" type="xs:string" use="required"/>
+                					<xs:attribute name="href" type="xs:string" use="required"/>
+                					<xs:attribute name="title" type="xs:string" use="required"/>
+                				</xs:complexType>
+                			</xs:element>
+                		</xs:sequence>
+                	</xs:complexType>
+                </xs:element> 
+                <xs:choice maxOccurs="1">
+                    <xs:element name="useLatestDecorVersion0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">See: useLatestDecorVersion1</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="useLatestDecorVersion1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">If set, decor2html will get overview results using RetrieveTransaction for the most recent version in project-decor.xml. 
+                                If absent, current RetrieveTransaction results will be used.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="inDevelopment0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion should create artefacts without timestamp directories as this is still in development &lt;inDevelopment1/> should be present; artefacts
+                                directories will carry timestamps if &lt;inDevelopment0/> is present</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="inDevelopment1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion should create artefacts without timestamp directories as this is still in development &lt;inDevelopment1/> should be present; artefacts
+                                directories will carry timestamps if &lt;inDevelopment0/> is present</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:element ref="defaultLanguage" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">You may influence the output langauge by setting defaultLanguage as an override for the default project language. You may use any of the 
+                            available/valid language codes, e.g. &lt;defaultLanguage>en-US&lt;/defaultLanguage>. The project/@defaultLanguage is used when this element is absent or is 
+                            empty. A special value ALL activates output in every available language in the DECOR file.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="switchCreateDatatypeChecks0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the schematrons to test all data type constraints the element &lt;switchCreateDatatypeChecks1/> should be present; data type validation 
+                                is skipped with &lt;switchCreateDatatypeChecks0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="switchCreateDatatypeChecks1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create the schematrons to test all data type constraints the element &lt;switchCreateDatatypeChecks1/> should be present; data type validation 
+                                is skipped with &lt;switchCreateDatatypeChecks0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:choice maxOccurs="1">
+                    <xs:element name="createDefaultInstancesForRepresentingTemplates0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create default instances of every transaction including community mappings (if any) the element &lt;createDefaultInstancesForRepresentingTemplates1/> should be present; creating default instances 
+                                is skipped with &lt;createDefaultInstancesForRepresentingTemplates0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="createDefaultInstancesForRepresentingTemplates1">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en-US">if the conversion process should create default instances of every transaction including community mappings (if any) the element &lt;createDefaultInstancesForRepresentingTemplates1/> should be present; creating default instances 
+                                is skipped with &lt;createDefaultInstancesForRepresentingTemplates0/></xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:choice>
+                <xs:element name="useCustomRetrieve1" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">Customizations to be used in RetrieveTransaction</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="hidecolumns" use="required">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="en-US">Columns to hide</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="logLevel" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">Determines the log level of the DECOR2schematron.xsl transformation. Defaults to INFO</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:NMTOKEN">
+                            <xs:enumeration value="INFO">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The INFO level designates informational messages that highlight the progress of the application at coarse-grained level.</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                            <xs:enumeration value="ALL">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The ALL has the lowest possible rank and is intended to turn on all logging."</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                            <xs:enumeration value="DEBUG">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The DEBUG Level designates fine-grained informational events that are most useful to debug an application.</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                            <xs:enumeration value="WARN">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The WARN level designates potentially harmful situations.</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                            <xs:enumeration value="ERROR">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The ERROR level designates error events that might still allow the application to continue running.</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                            <xs:enumeration value="FATAL">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The FATAL level designates very severe error events that will presumably lead the application to abort.</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                            <xs:enumeration value="OFF">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en-US">The OFF level has the highest possible rank and is intended to turn off logging.</xs:documentation>
+                                </xs:annotation>
+                            </xs:enumeration>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="artdecordeeplinkprefix" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">URI for ART-DECOR, e.g. http://art-decor.org/art-decor/. MUST end with a /. The value is used to build the URI to the 
+                            live project for example to get to full issue details. If you do not set it here, we will try decor/@deeplinkprefix which gets set through project 
+                            compilation, if that has no value, and you do not supply it directly to DECOR2schematron (e.g. through the ADRAM service), the value is empty and links
+                            will not work.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:anyURI">
+                            <xs:pattern value="http://.*/"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="homePage" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="src" type="xs:string" use="required"/>
+                        <xs:attribute name="language" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="examples" minOccurs="0" maxOccurs="1">
+                	<xs:complexType>
+                		<xs:sequence>
+                			<xs:element name="example" minOccurs="1" maxOccurs="unbounded">
+                				<xs:complexType>
+                					<xs:attribute name="src" type="xs:string" use="required"/>
+                					<xs:attribute name="templateId" type="xs:string" use="required"/>
+                					<xs:attribute name="title" type="xs:string" use="required"/>
+                				</xs:complexType>
+                			</xs:element>
+                		</xs:sequence>
+                	</xs:complexType>
+                </xs:element>
+                <xs:element name="dictionaries" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="dictionary" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string" use="required"/>
+                                    <xs:attribute name="title" type="xs:string" use="required"/>
+                                    <xs:attribute name="src" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="defaultLanguage" type="LanguageCode"/>
+</xs:schema>

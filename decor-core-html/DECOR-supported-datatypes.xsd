@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="supportedDataTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dataType"/>
+        <xs:element maxOccurs="unbounded" ref="atomicDataType"/>
+        <xs:element maxOccurs="unbounded" ref="attribute"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dataType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="dataType" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element ref="desc" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="flavor"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="attribute"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="element"/>
+      </xs:sequence>
+      <xs:attribute name="hasStrength" type="xs:boolean"/>
+      <xs:attribute name="name" use="required" type="xs:QName"/>
+      <xs:attribute name="realm" type="xs:NCName"/>
+      <xs:attribute name="represents"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="atomicDataType">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element ref="atomicDataType" maxOccurs="unbounded"/>
+        <xs:element ref="flavor" maxOccurs="unbounded"/>
+      </xs:choice>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="realm" type="xs:NCName"/>
+      <xs:attribute name="represents"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="attribute">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="property"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vocabulary"/>
+      </xs:choice>
+      <xs:attribute name="datatype" use="required" type="xs:NCName"/>
+      <xs:attribute name="isOptional" use="required" type="xs:boolean"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="value" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="property">
+    <xs:complexType>
+      <xs:attribute name="minValue" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vocabulary">
+    <xs:complexType>
+      <xs:attribute name="code" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="desc">
+    <xs:complexType mixed="true">
+      <xs:attribute name="language" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flavor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="desc"/>
+        <xs:element minOccurs="0" ref="operationalization"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="attribute"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="element"/>
+      </xs:sequence>
+      <xs:attribute name="hasStrength" type="xs:boolean"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="realm" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="operationalization">
+    <xs:complexType mixed="true">
+      <xs:attribute name="language" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="element">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="desc" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      <xs:attribute name="conformance" use="required" type="xs:NCName"/>
+      <xs:attribute name="datatype" use="optional" type="datatype"/>
+      <xs:attribute name="isMandatory" use="required" type="xs:boolean"/>
+      <xs:attribute name="maxOccurs" type="xs:NCName"/>
+      <xs:attribute name="maximumMultiplicity"/>
+      <xs:attribute name="minOccurs" type="xs:integer"/>
+      <xs:attribute name="minimumMultiplicity" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="datatype">
+     <xs:union memberTypes="xs:NCName xs:QName"/>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,28 @@
+<!--
+    DECOR-supported-datatypes
+    Copyright (C) 2013-2016 Dr. Kai U. Heitmann, Alexander Henket
+    
+    List of supported data types in ART-DECOR
+    
+    reflects data types as <dataType> elements with the name
+    name must be present (as of now) in coreschematrons directory as DTr1_{name}.sch
+    
+    data type elements are hierarchical representing inheritence, e.g.
+    a SC is_a ST is_a ED is_a BIN 
+    
+    Also reflects possibility of demotion
+    
+    <flavor> elements may be added as immediate child elements of a data type
+    to reflect a data type flavor (variant, data type with further constraint), 
+    additionally shall carry a realm indicator, e.g. DE, NL, AT etc. or UV
+    
+    The mapping to one of the value domain data types of concepts in data sets 
+    is also shown.
+    So far the possible mapping is shown for the following value domain data types
+      blob boolean code complex date datetime decimal duration identifier ordinal
+      quantity string text count
+-->
+<?xml-model href="DECOR-supported-datatypes.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<supportedDataTypes xmlns:f="http://hl7.org/fhir" type="fhirxml">
+    <!-- TODO -->
+</supportedDataTypes>

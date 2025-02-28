@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v2xml" targetNamespace="urn:hl7-org:v2xml" elementFormDefault="qualified">
+    <xs:include schemaLocation="coreschemas/datatypes.xsd"/>
+    
+    <xs:element name="datatypes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="aAD" type="AD"/>
+                <xs:element name="aAUI" type="AUI"/>
+                <xs:element name="aCCD" type="CCD"/>
+                <xs:element name="aCCP" type="CCP"/>
+                <xs:element name="aCD" type="CD"/>
+                <xs:element name="aCE" type="CE"/>
+                <xs:element name="aCF" type="CF"/>
+                <xs:element name="aCNE" type="CNE"/>
+                <xs:element name="aCNN" type="CNN"/>
+                <xs:element name="aCP" type="CP"/>
+                <xs:element name="aCQ" type="CQ"/>
+                <xs:element name="aCSU" type="CSU"/>
+                <xs:element name="aCWE" type="CWE"/>
+                <xs:element name="aCX" type="CX"/>
+                <xs:element name="aDDI" type="DDI"/>
+                <xs:element name="aDIN" type="DIN"/>
+                <xs:element name="aDLD" type="DLD"/>
+                <xs:element name="aDLN" type="DLN"/>
+                <xs:element name="aDLT" type="DLT"/>
+                <xs:element name="aDR" type="DR"/>
+                <xs:element name="aDT" type="DT"/>
+                <xs:element name="aDTM" type="DTM"/>
+                <xs:element name="aDTN" type="DTN"/>
+                <xs:element name="aED" type="ED"/>
+                <xs:element name="aEI" type="EI"/>
+                <xs:element name="aEIP" type="EIP"/>
+                <xs:element name="aELD" type="ELD"/>
+                <xs:element name="aERL" type="ERL"/>
+                <xs:element name="aFC" type="FC"/>
+                <xs:element name="aFN" type="FN"/>
+                <xs:element name="aFT" type="FT"/>
+                <xs:element name="aGTS" type="GTS"/>
+                <xs:element name="aHD" type="HD"/>
+                <xs:element name="aICD" type="ICD"/>
+                <xs:element name="aID" type="ID"/>
+                <xs:element name="aIS" type="IS"/>
+                <xs:element name="aJCC" type="JCC"/>
+                <xs:element name="aLA1" type="LA1"/>
+                <xs:element name="aLA2" type="LA2"/>
+                <xs:element name="aMA" type="MA"/>
+                <xs:element name="aMO" type="MO"/>
+                <xs:element name="aMOC" type="MOC"/>
+                <xs:element name="aMOP" type="MOP"/>
+                <xs:element name="aMSG" type="MSG"/>
+                <xs:element name="aNA" type="NA"/>
+                <xs:element name="aNDL" type="NDL"/>
+                <xs:element name="aNM" type="NM"/>
+                <xs:element name="aNR" type="NR"/>
+                <xs:element name="aOCD" type="OCD"/>
+                <xs:element name="aOSD" type="OSD"/>
+                <xs:element name="aOSP" type="OSP"/>
+                <xs:element name="aPIP" type="PIP"/>
+                <xs:element name="aPL" type="PL"/>
+                <xs:element name="aPLN" type="PLN"/>
+                <xs:element name="aPPN" type="PPN"/>
+                <xs:element name="aPRL" type="PRL"/>
+                <xs:element name="aPT" type="PT"/>
+                <xs:element name="aPTA" type="PTA"/>
+                <xs:element name="aQIP" type="QIP"/>
+                <xs:element name="aQSC" type="QSC"/>
+                <xs:element name="aRCD" type="RCD"/>
+                <xs:element name="aRFR" type="RFR"/>
+                <xs:element name="aRI" type="RI"/>
+                <xs:element name="aRMC" type="RMC"/>
+                <xs:element name="aRP" type="RP"/>
+                <xs:element name="aRPT" type="RPT"/>
+                <xs:element name="aSAD" type="SAD"/>
+                <xs:element name="aSCV" type="SCV"/>
+                <xs:element name="aSI" type="SI"/>
+                <xs:element name="aSN" type="SN"/>
+                <xs:element name="aSPD" type="SPD"/>
+                <xs:element name="aSPS" type="SPS"/>
+                <xs:element name="aSRT" type="SRT"/>
+                <xs:element name="aST" type="ST"/>
+                <xs:element name="aTM" type="TM"/>
+                <xs:element name="aTQ" type="TQ"/>
+                <xs:element name="aTS" type="TS"/>
+                <xs:element name="aTX" type="TX"/>
+                <xs:element name="aUVC" type="UVC"/>
+                <xs:element name="avaries" type="varies"/>
+                <xs:element name="aVH" type="VH"/>
+                <xs:element name="aVID" type="VID"/>
+                <xs:element name="aVR" type="VR"/>
+                <xs:element name="aWVI" type="WVI"/>
+                <xs:element name="aWVS" type="WVS"/>
+                <xs:element name="aXAD" type="XAD"/>
+                <xs:element name="aXCN" type="XCN"/>
+                <xs:element name="aXON" type="XON"/>
+                <xs:element name="aXPN" type="XPN"/>
+                <xs:element name="aXTN" type="XTN"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decor-valueset-and-templates-only xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                                   xmlns:xforms="http://www.w3.org/2002/xforms"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                   xmlns:uuid="java:java.util.UUID"
+                                   xmlns:local="http://art-decor.org/functions"
+                                   xsi:noNamespaceSchemaLocation="DECORrulesonly.xsd">
+   <valueSet name="DecorObjectType"
+             displayName="DecorObjectType"
+             id="2.16.840.1.113883.3.1937.98.11.1"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="DS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Data set"
+                  type="L"
+                  level="0"/>
+         <concept code="DE"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Data Element"
+                  type="L"
+                  level="0"/>
+         <concept code="SC"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Scenario"
+                  type="L"
+                  level="0"/>
+         <concept code="TR"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Transaction"
+                  type="L"
+                  level="0"/>
+         <concept code="AC"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Actors"
+                  type="L"
+                  level="0"/>
+         <concept code="VS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Value Set"
+                  type="L"
+                  level="0"/>
+         <concept code="IS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Issue"
+                  type="L"
+                  level="0"/>
+         <concept code="RL"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Rule"
+                  type="L"
+                  level="0"/>
+         <concept code="TM"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Template"
+                  type="L"
+                  level="0"/>
+         <concept code="CL"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Concept list"
+                  type="L"
+                  level="0"/>
+         <concept code="EL"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Template Element"
+                  type="L"
+                  level="0"/>
+         <concept code="SX"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Test Scenario"
+                  type="L"
+                  level="0"/>
+         <concept code="TX"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Test Data Element"
+                  type="L"
+                  level="0"/>
+         <concept code="EX"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Example transaction"
+                  type="L"
+                  level="0"/>
+         <concept code="QX"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Test requirements"
+                  type="L"
+                  level="0"/>
+         <concept code="CM"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Community"
+                  type="L"
+                  level="0"/>
+         <concept code="CS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.1"
+                  displayName="Code system"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ReleaseStatusCodeLifeCycle"
+             displayName="ReleaseStatusCodeLifeCycle"
+             id="2.16.840.1.113883.3.1937.98.11.2"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="draft"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.2"
+                  displayName="Draft"
+                  type="L"
+                  level="0"/>
+         <concept code="active"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.2"
+                  displayName="Active"
+                  type="L"
+                  level="0"/>
+         <concept code="pending"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.2"
+                  displayName="Under pre-publication review"
+                  type="L"
+                  level="0"/>
+         <concept code="retired"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.2"
+                  displayName="Retired"
+                  type="L"
+                  level="0"/>
+         <concept code="cancelled"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.2"
+                  displayName="Cancelled"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="DataSetTimeStampPrecision"
+             displayName="DataSetTimeStampPrecision"
+             id="2.16.840.1.113883.3.1937.98.11.3"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="Y"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="at least year (YYYY)"
+                  type="L"
+                  level="0"/>
+         <concept code="Y!"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="year (YYYY)"
+                  type="L"
+                  level="0"/>
+         <concept code="YM"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="at least month (MM) and year (YYYY)"
+                  type="L"
+                  level="0"/>
+         <concept code="YM!"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="month (MM) and year (YYYY)"
+                  type="L"
+                  level="0"/>
+         <concept code="YMD"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="at least day (DD), month (MM) and year (YYYY)"
+                  type="L"
+                  level="0"/>
+         <concept code="YMD!"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="day (DD), month (MM) and year (YYYY)"
+                  type="L"
+                  level="0"/>
+         <concept code="YMDHM"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.3"
+                  displayName="at least day (DD), month (MM) and year (YYYY), hour (hh) and minute (mm)"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="DataSetValueType"
+             displayName="DataSetValueType"
+             id="2.16.840.1.113883.3.1937.98.11.4"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="count"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Count"
+                  type="L"
+                  level="0"/>
+         <concept code="code"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Code"
+                  type="L"
+                  level="0"/>
+         <concept code="ordinal"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Ordinal"
+                  type="L"
+                  level="0"/>
+         <concept code="identifier"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Identifier"
+                  type="L"
+                  level="0"/>
+         <concept code="string"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="String"
+                  type="L"
+                  level="0"/>
+         <concept code="text"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Text"
+                  type="L"
+                  level="0"/>
+         <concept code="date"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Date"
+                  type="L"
+                  level="0"/>
+         <concept code="datetime"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Date+time"
+                  type="L"
+                  level="0"/>
+         <concept code="complex"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Collection of data"
+                  type="L"
+                  level="0"/>
+         <concept code="quantity"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Quantity"
+                  type="L"
+                  level="0"/>
+         <concept code="duration"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Duration"
+                  type="L"
+                  level="0"/>
+         <concept code="boolean"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Boolean"
+                  type="L"
+                  level="0"/>
+         <concept code="blob"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Binary"
+                  type="L"
+                  level="0"/>
+         <concept code="decimal"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.4"
+                  displayName="Decimal number"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="DataSetConceptType"
+             displayName="DataSetConceptType"
+             id="2.16.840.1.113883.3.1937.98.11.5"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="group"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.5"
+                  displayName="Group"
+                  type="L"
+                  level="0"/>
+         <concept code="item"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.5"
+                  displayName="Item"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ProcessCode"
+             displayName="ProcessCode"
+             id="2.16.840.1.113883.3.1937.98.11.6"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="strict"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.6"
+                  displayName="Strict"
+                  type="L"
+                  level="0"/>
+         <concept code="lax"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.6"
+                  displayName="Lax"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ItemStatusCodeLifeCycle"
+             displayName="ItemStatusCodeLifeCycle"
+             id="2.16.840.1.113883.3.1937.98.11.7"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="new"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.7"
+                  displayName="New"
+                  type="L"
+                  level="0"/>
+         <concept code="draft"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.7"
+                  displayName="Draft"
+                  type="L"
+                  level="0"/>
+         <concept code="final"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.7"
+                  displayName="Final"
+                  type="L"
+                  level="0"/>
+         <concept code="rejected"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.7"
+                  displayName="Rejected"
+                  type="L"
+                  level="0"/>
+         <concept code="cancelled"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.7"
+                  displayName="Cancelled"
+                  type="L"
+                  level="0"/>
+         <concept code="deprecated"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.7"
+                  displayName="Deprecated"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="TemplateStatusCodeLifeCycle"
+             displayName="TemplateStatusCodeLifeCycle"
+             id="2.16.840.1.113883.3.1937.98.11.8"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="draft"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Draft"
+                  type="L"
+                  level="0"/>
+         <concept code="active"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Active"
+                  type="L"
+                  level="0"/>
+         <concept code="retired"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Retired"
+                  type="L"
+                  level="0"/>
+         <concept code="inactive"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="inactive"
+                  type="L"
+                  level="0"/>
+         <concept code="rejected"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Rejected"
+                  type="L"
+                  level="0"/>
+         <concept code="cancelled"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Cancelled"
+                  type="L"
+                  level="0"/>
+         <concept code="update"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Under update"
+                  type="L"
+                  level="0"/>
+         <concept code="pending"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="Under pre-publication review"
+                  type="L"
+                  level="0"/>
+         <concept code="review"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.8"
+                  displayName="In Review"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="TransactionType"
+             displayName="TransactionType"
+             id="2.16.840.1.113883.3.1937.98.11.9"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="group"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.9"
+                  displayName="Group"
+                  type="L"
+                  level="0"/>
+         <concept code="initial"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.9"
+                  displayName="Initial"
+                  type="L"
+                  level="0"/>
+         <concept code="back"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.9"
+                  displayName="Back"
+                  type="L"
+                  level="0"/>
+         <concept code="stationary"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.9"
+                  displayName="Stationary"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ScenarioActorType"
+             displayName="ScenarioActorType"
+             id="2.16.840.1.113883.3.1937.98.11.10"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="person"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.10"
+                  displayName="Person"
+                  type="L"
+                  level="0"/>
+         <concept code="organization"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.10"
+                  displayName="Organization"
+                  type="L"
+                  level="0"/>
+         <concept code="device"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.10"
+                  displayName="Device"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ActorType"
+             displayName="ActorType"
+             id="2.16.840.1.113883.3.1937.98.11.11"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="sender"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.11"
+                  displayName="Sender"
+                  type="L"
+                  level="0"/>
+         <concept code="receiver"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.11"
+                  displayName="Receiver"
+                  type="L"
+                  level="0"/>
+         <concept code="stationary"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.11"
+                  displayName="Stationary"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="NotifierOnOff"
+             displayName="NotifierOnOff"
+             id="2.16.840.1.113883.3.1937.98.11.12"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="on"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.12"
+                  displayName="Notifier on"
+                  type="L"
+                  level="0"/>
+         <concept code="off"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.12"
+                  displayName="Notifier off"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="IssueType"
+             displayName="IssueType"
+             id="2.16.840.1.113883.3.1937.98.11.13"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="INC"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.13"
+                  displayName="Incident"
+                  type="L"
+                  level="0"/>
+         <concept code="RFC"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.13"
+                  displayName="Change Request"
+                  type="L"
+                  level="0"/>
+         <concept code="FUT"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.13"
+                  displayName="For future consideration"
+                  type="L"
+                  level="0"/>
+         <concept code="CLF"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.13"
+                  displayName="Request for Information/Education"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="IssuePriority"
+             displayName="IssuePriority"
+             id="2.16.840.1.113883.3.1937.98.11.14"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="HH"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.14"
+                  displayName="Highest"
+                  type="L"
+                  level="0"/>
+         <concept code="H"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.14"
+                  displayName="High"
+                  type="L"
+                  level="0"/>
+         <concept code="N"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.14"
+                  displayName="Normal"
+                  type="L"
+                  level="0"/>
+         <concept code="L"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.14"
+                  displayName="Low"
+                  type="L"
+                  level="0"/>
+         <concept code="LL"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.14"
+                  displayName="Lowest"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="IssueObjectType"
+             displayName="IssueObjectType"
+             id="2.16.840.1.113883.3.1937.98.11.15"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="VS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Value Set"
+                  type="L"
+                  level="0"/>
+         <concept code="DE"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Data Element"
+                  type="L"
+                  level="0"/>
+         <concept code="TM"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Template"
+                  type="L"
+                  level="0"/>
+         <concept code="TR"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Transaction"
+                  type="L"
+                  level="0"/>
+         <concept code="DS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Data Set"
+                  type="L"
+                  level="0"/>
+         <concept code="SC"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Scenario"
+                  type="L"
+                  level="0"/>
+         <concept code="IS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Issue"
+                  type="L"
+                  level="0"/>
+         <concept code="CS"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.15"
+                  displayName="Code system"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="IssueStatusCodeLifeCycle"
+             displayName="IssueStatusCodeLifeCycle"
+             id="2.16.840.1.113883.3.1937.98.11.16"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="new"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="New"
+                  type="L"
+                  level="0"/>
+         <concept code="open"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="Open"
+                  type="L"
+                  level="0"/>
+         <concept code="inprogress"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="In Progress"
+                  type="L"
+                  level="0"/>
+         <concept code="feedback"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="Feedback needed"
+                  type="L"
+                  level="0"/>
+         <concept code="closed"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="Closed"
+                  type="L"
+                  level="0"/>
+         <concept code="rejected"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="Rejected"
+                  type="L"
+                  level="0"/>
+         <concept code="deferred"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="Deferred"
+                  type="L"
+                  level="0"/>
+         <concept code="cancelled"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.16"
+                  displayName="Cancelled"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="NullFlavorPattern"
+             displayName="NullFlavorPattern"
+             id="2.16.840.1.113883.3.1937.98.11.17"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="nullFlavor"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.17"
+                  displayName="nullFlavor"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="VocabType"
+             displayName="VocabType"
+             id="2.16.840.1.113883.3.1937.98.11.18"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="L"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.18"
+                  displayName="L"
+                  type="L"
+                  level="0"/>
+         <concept code="A"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.18"
+                  displayName="A"
+                  type="L"
+                  level="0"/>
+         <concept code="S"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.18"
+                  displayName="S"
+                  type="L"
+                  level="0"/>
+         <concept code="D"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.18"
+                  displayName="D"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ConformanceType"
+             displayName="ConformanceType"
+             id="2.16.840.1.113883.3.1937.98.11.19"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="R"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.19"
+                  displayName="Required"
+                  type="L"
+                  level="0"/>
+         <concept code="C"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.19"
+                  displayName="Conditional"
+                  type="L"
+                  level="0"/>
+         <concept code="NP"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.19"
+                  displayName="Not present"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="DesignationType"
+             displayName="DesignationType"
+             id="2.16.840.1.113883.3.1937.98.11.20"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="preferred"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.20"
+                  displayName="preferred"
+                  type="L"
+                  level="0"/>
+         <concept code="synonym"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.20"
+                  displayName="synonym"
+                  type="L"
+                  level="0"/>
+         <concept code="abbreviation"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.20"
+                  displayName="abbreviation"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="TemplateTypes"
+             displayName="TemplateTypes"
+             id="2.16.840.1.113883.3.1937.98.11.21"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="cdadocumentlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="CDA document level template"
+                  type="L"
+                  level="0"/>
+         <concept code="cdaheaderlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="CDA header level template"
+                  type="L"
+                  level="0"/>
+         <concept code="cdasectionlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="CDA section level template"
+                  type="L"
+                  level="0"/>
+         <concept code="cdaentrylevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="CDA entry level template"
+                  type="L"
+                  level="0"/>
+         <concept code="messagelevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="HL7 V2/V3 message level template"
+                  type="L"
+                  level="0"/>
+         <concept code="segmentlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="HL7 V2 segment level template"
+                  type="L"
+                  level="0"/>
+         <concept code="clinicalstatementlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="HL7 V3 clinical statement level template"
+                  type="L"
+                  level="0"/>
+         <concept code="controlactlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="HL7 V3 Control Act level template"
+                  type="L"
+                  level="0"/>
+         <concept code="payloadlevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="HL7 V3 Payload level template"
+                  type="L"
+                  level="0"/>
+         <concept code="datatypelevel"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="HL7 V2/V3 data type level template"
+                  type="L"
+                  level="0"/>
+         <concept code="notype"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.21"
+                  displayName="Template type not specified"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="RelationshipTypes"
+             displayName="RelationshipTypes"
+             id="2.16.840.1.113883.3.1937.98.11.22"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="REPL"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Replacement"
+                  type="L"
+                  level="0"/>
+         <concept code="SPEC"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Specialization"
+                  type="L"
+                  level="0"/>
+         <concept code="GEN"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Generalization"
+                  type="L"
+                  level="0"/>
+         <concept code="COPY"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Copy"
+                  type="L"
+                  level="0"/>
+         <concept code="ADAPT"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Adaptation"
+                  type="L"
+                  level="0"/>
+         <concept code="EQUIV"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Equivalent"
+                  type="L"
+                  level="0"/>
+         <concept code="VERSION"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Versie"
+                  type="L"
+                  level="0"/>
+         <concept code="BACKWD"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Backward Compatible"
+                  type="L"
+                  level="0"/>
+         <concept code="DRIV"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.22"
+                  displayName="Derived"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="TemplateFormats"
+             displayName="TemplateFormats"
+             id="2.16.840.1.113883.3.1937.98.11.23"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="hl7v3xml1"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.23"
+                  displayName="Template format HL7 V3 XML ITS 1"
+                  type="L"
+                  level="0"/>
+         <concept code="hl7v2.5xml"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.23"
+                  displayName="Template format HL7 V2.5 XML ITS 1"
+                  type="L"
+                  level="0"/>
+         <concept code="fhirxml"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.23"
+                  displayName="Template format FHIR XML"
+                  type="L"
+                  level="0"/>
+         <concept code="vmrxml"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.23"
+                  displayName="Template format vMR CDS XML"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="ExampleType"
+             displayName="ExampleType"
+             id="2.16.840.1.113883.3.1937.98.11.24"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="error"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.24"
+                  displayName="error"
+                  type="L"
+                  level="0"/>
+         <concept code="valid"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.24"
+                  displayName="valid"
+                  type="L"
+                  level="0"/>
+         <concept code="neutral"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.24"
+                  displayName="neutral"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="AssertRole"
+             displayName="AssertRole"
+             id="2.16.840.1.113883.3.1937.98.11.25"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="fatal"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.25"
+                  displayName="fatal"
+                  type="L"
+                  level="0"/>
+         <concept code="error"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.25"
+                  displayName="error"
+                  type="L"
+                  level="0"/>
+         <concept code="warning"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.25"
+                  displayName="warning"
+                  type="L"
+                  level="0"/>
+         <concept code="hint"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.25"
+                  displayName="hint"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="SelfReferenceTemplateId"
+             displayName="SelfReferenceTemplateId"
+             id="2.16.840.1.113883.3.1937.98.11.26"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="*"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.26"
+                  displayName="*"
+                  type="L"
+                  level="0"/>
+         <concept code="**"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.26"
+                  displayName="**"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="CodingStrengthType"
+             displayName="CodingStrengthType"
+             id="2.16.840.1.113883.3.1937.98.11.27"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="CNE"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.27"
+                  displayName="Coded with no Exceptions"
+                  type="L"
+                  level="0"/>
+         <concept code="CWE"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.27"
+                  displayName="Coded with Exceptions"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <valueSet name="DynamicFlexibility"
+             displayName="DynamicFlexibility"
+             id="2.16.840.1.113883.3.1937.98.11.28"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <conceptList>
+         <concept code="dynamic"
+                  codeSystem="2.16.840.1.113883.3.1937.98.5.28"
+                  displayName="dynamic"
+                  type="L"
+                  level="0"/>
+      </conceptList>
+   </valueSet>
+   <template id="2.16.840.1.113883.3.1937.98.10.1"
+             name="DECOR"
+             displayName="DECOR"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <desc language="en-US">DECOR definitions to describe DECOR in DECOR</desc>
+      <element name="hl7:template" minimumMultiplicity="0" maximumMultiplicity="*">
+         <attribute name="id" isOptional="true" datatype="Oid"/>
+         <attribute name="ref" isOptional="true" datatype="Oid"/>
+         <attribute name="name" isOptional="false" datatype="ShortFormalName"/>
+         <include ref="VersionHandlingEffectiveDateOptional"/>
+         <attribute name="statusCode" isOptional="true">
+            <vocabulary valueSet="TemplateStatusCodeLifeCycle"/>
+         </attribute>
+         <attribute name="displayName" isOptional="true"/>
+         <attribute name="isClosed" isOptional="true" datatype="xs:boolean"/>
+         <element name="desc"
+                  minimumMultiplicity="0"
+                  maximumMultiplicity="*"
+                  datatype="FreeFormMarkupWithLanguage"/>
+         <element name="classification"
+                  minimumMultiplicity="0"
+                  maximumMultiplicity="*">
+            <include ref="TemplateProperties"/>
+         </element>
+         <element name="relationship" minimumMultiplicity="0" maximumMultiplicity="*">
+            <include ref="TemplateRelationships"/>
+         </element>
+         <include ref="context" minimumMultiplicity="0" maximumMultiplicity="1"/>
+         <include ref="item" minimumMultiplicity="0" maximumMultiplicity="1"/>
+         <include ref="example" minimumMultiplicity="0" maximumMultiplicity="*"/>
+         <element name="inherit" conformance="NP">
+            <include ref="InheritDefinition"/>
+         </element>
+         <element name="publishingAuthority" conformance="NP">
+            <include ref="AuthorityType"/>
+         </element>
+         <element name="endorsingAuthority" conformance="NP">
+            <include ref="AuthorityType"/>
+         </element>
+         <element name="revisionHistory" conformance="NP">
+            <include ref="ObjectHistory"/>
+         </element>
+         <choice>
+            <include ref="attribute" minimumMultiplicity="0" maximumMultiplicity="*"/>
+            <element name="choice" minimumMultiplicity="1" maximumMultiplicity="*">
+               <include ref="ChoiceDefinition"/>
+            </element>
+            <element name="element" minimumMultiplicity="1" maximumMultiplicity="*">
+               <include ref="RuleDefinition"/>
+            </element>
+            <element name="include" minimumMultiplicity="1" maximumMultiplicity="*">
+               <include ref="IncludeDefinition"/>
+            </element>
+            <include ref="let" minimumMultiplicity="0" maximumMultiplicity="*"/>
+            <include ref="assert" minimumMultiplicity="0" maximumMultiplicity="*"/>
+            <include ref="report" minimumMultiplicity="0" maximumMultiplicity="*"/>
+            <include ref="defineVariable"
+                     minimumMultiplicity="0"
+                     maximumMultiplicity="*"/>
+            <element name="constraint"
+                     minimumMultiplicity="0"
+                     maximumMultiplicity="*"
+                     datatype="FreeFormMarkupWithLanguage"/>
+         </choice>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.2"
+             name="context"
+             displayName="context"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="context">
+         <attribute name="id" isOptional="true">
+            <vocabulary valueSet="SelfReferenceTemplateId"/>
+         </attribute>
+         <attribute name="path" isOptional="true" datatype="xs:anyURI"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.3"
+             name="item"
+             displayName="item"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="item">
+         <attribute name="label" isOptional="false" datatype="NonEmptyString"/>
+         <element name="desc"
+                  minimumMultiplicity="0"
+                  maximumMultiplicity="*"
+                  datatype="FreeFormMarkupWithLanguage"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.4"
+             name="example"
+             displayName="example"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="example">
+         <attribute name="type" isOptional="true">
+            <vocabulary valueSet="ExampleType"/>
+         </attribute>
+         <attribute name="caption" isOptional="true" datatype="NonEmptyString"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.5"
+             name="attribute"
+             displayName="attribute"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="attribute">
+         <attribute name="classCode" datatype="EnumerationString"/>
+         <attribute name="moodCode" datatype="EnumerationString"/>
+         <attribute name="extension" datatype="EnumerationString"/>
+         <attribute name="root" datatype="OidChoiceList"/>
+         <attribute name="typeCode" datatype="EnumerationString"/>
+         <attribute name="contextControlCode" datatype="EnumerationToken"/>
+         <attribute name="operator" datatype="EnumerationToken"/>
+         <attribute name="institutionSpecified" datatype="xs:boolean"/>
+         <attribute name="unit" datatype="NonEmptyString"/>
+         <attribute name="determinerCode" datatype="EnumerationToken"/>
+         <attribute name="contextConductionInd" datatype="xs:boolean"/>
+         <attribute name="inversionInd" datatype="xs:boolean"/>
+         <attribute name="independentInd" datatype="xs:boolean"/>
+         <attribute name="negationInd" datatype="EnumerationString"/>
+         <attribute name="mediaType" datatype="EnumerationString"/>
+         <attribute name="representation" datatype="EnumerationString"/>
+         <attribute name="use" datatype="EnumerationString"/>
+         <attribute name="qualifier" datatype="EnumerationString"/>
+         <attribute name="nullFlavor" datatype="EnumerationString"/>
+         <attribute name="isOptional" datatype="xs:boolean"/>
+         <attribute name="prohibited" datatype="xs:boolean"/>
+         <attribute name="name" datatype="EnumerationToken"/>
+         <attribute name="value" datatype="NonEmptyString"/>
+         <attribute name="datatype" datatype="xs:QName"/>
+         <element name="desc"
+                  minimumMultiplicity="0"
+                  maximumMultiplicity="*"
+                  datatype="FreeFormMarkupWithLanguage"/>
+         <include ref="item" minimumMultiplicity="0" maximumMultiplicity="1"/>
+         <choice>
+            <include ref="vocabulary" minimumMultiplicity="0" maximumMultiplicity="*"/>
+            <element name="constraint"
+                     minimumMultiplicity="0"
+                     maximumMultiplicity="*"
+                     datatype="FreeFormMarkupWithLanguage"/>
+         </choice>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.6"
+             name="item"
+             displayName="item"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="item">
+         <attribute name="label" isOptional="false" datatype="NonEmptyString"/>
+         <element name="desc"
+                  minimumMultiplicity="0"
+                  maximumMultiplicity="*"
+                  datatype="FreeFormMarkupWithLanguage"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.7"
+             name="vocabulary"
+             displayName="vocabulary"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="vocabulary">
+         <attribute name="valueSet" datatype="BasicIdOrOid"/>
+         <attribute name="flexibility" datatype="StaticOrDynamicFlexibility"/>
+         <attribute name="code" datatype="EnumerationString"/>
+         <attribute name="codeSystem" datatype="Oid"/>
+         <attribute name="displayName"/>
+         <attribute name="codeSystemName" datatype="NonEmptyString"/>
+         <attribute name="domain" datatype="NonEmptyString"/>
+         <attribute name="strength">
+            <vocabulary valueSet="CodingStrengthType"/>
+         </attribute>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.8"
+             name="displayName"
+             displayName="displayName"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="displayName" datatype="NonEmptyString"/>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.9"
+             name="let"
+             displayName="let"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="let">
+         <attribute name="name" isOptional="false" datatype="NonEmptyString"/>
+         <attribute name="value" isOptional="false" datatype="NonEmptyString"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.10"
+             name="assert"
+             displayName="assert"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="assert">
+         <attribute name="flag" isOptional="true" datatype="NonEmptyString"/>
+         <attribute name="see" isOptional="true" datatype="NonEmptyString"/>
+         <attribute name="role" isOptional="false">
+            <vocabulary valueSet="AssertRole"/>
+         </attribute>
+         <attribute name="test" isOptional="false" datatype="NonEmptyString"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.11"
+             name="report"
+             displayName="report"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="report">
+         <attribute name="flag" isOptional="true" datatype="NonEmptyString"/>
+         <attribute name="see" isOptional="true" datatype="NonEmptyString"/>
+         <attribute name="role" isOptional="false">
+            <vocabulary valueSet="AssertRole"/>
+         </attribute>
+         <attribute name="test" isOptional="false" datatype="NonEmptyString"/>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.12"
+             name="defineVariable"
+             displayName="defineVariable"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <element name="defineVariable">
+         <attribute name="name" isOptional="false" datatype="xs:NCName"/>
+         <attribute name="path" isOptional="false" datatype="xs:anyURI"/>
+         <element name="code" minimumMultiplicity="0" maximumMultiplicity="1">
+            <include ref="VarCode"/>
+         </element>
+         <element name="use" minimumMultiplicity="0" maximumMultiplicity="1">
+            <include ref="VarUse"/>
+         </element>
+      </element>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.13"
+             name="displayName"
+             displayName="displayName"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="displayName" datatype="NonEmptyString"/>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.14"
+             name="VersionHandlingEffectiveDateOptional"
+             displayName="VersionHandlingEffectiveDateOptional"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="effectiveDate" isOptional="true"/>
+      <attribute name="expirationDate" isOptional="true"/>
+      <attribute name="officialReleaseDate" isOptional="true"/>
+      <attribute name="versionLabel" isOptional="true"/>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.15"
+             name="effectiveDate"
+             displayName="effectiveDate"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="effectiveDate" datatype="TimeStampNoTimezone"/>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.16"
+             name="expirationDate"
+             displayName="expirationDate"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="expirationDate" datatype="TimeStampNoTimezone"/>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.17"
+             name="officialReleaseDate"
+             displayName="officialReleaseDate"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="officialReleaseDate" datatype="TimeStampNoTimezone"/>
+   </template>
+   <template id="2.16.840.1.113883.3.1937.98.10.18"
+             name="versionLabel"
+             displayName="versionLabel"
+             effectiveDate="2013-12-05T00:00:00"
+             statusCode="draft">
+      <attribute name="versionLabel" datatype="ShortDescriptiveName"/>
+   </template>
+</decor-valueset-and-templates-only>

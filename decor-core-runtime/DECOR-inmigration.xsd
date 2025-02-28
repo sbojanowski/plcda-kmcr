@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    DECOR schema for ART-DECOR in-migration project folder addition files
+    Copyright (C) 2022-present by ART-DECOR Expert Group
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+    
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="inmigration">
+      <xs:annotation>
+          <xs:documentation>If a file with this element is existent in a DECOR project file</xs:documentation>
+      </xs:annotation>
+    <xs:complexType>
+        <xs:attribute name="type" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    @type is an indication whether there is a new hybrid / duplex environment with AD2 and AD3 both 
+                    using the same database (type=duplex) or a single AD3 environment with no AD2 option for entry (type=single3)
+                </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="duplex"/>
+                    <xs:enumeration value="single3"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="redirect2" use="optional" type="xs:anyURI">
+            <xs:annotation>
+                <xs:documentation>This is a conditional URL in redirect2 with an optional label to be displayed 
+                    for the URL in label2 to offer a redirect link to the new environment for ART-DECOR Release 2, 
+                    redirect2 required and displayed only when type=duplex</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="label2" use="optional" type="xs:string"/>
+        <xs:attribute name="redirect3" use="required" type="xs:anyURI">
+            <xs:annotation>
+                <xs:documentation>This is a mandatory URL redirect3 with an optional label to be displayed 
+                    for the URL in label3 to offer a redirect to the new environment for ART-DECOR Release 3
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="label3" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

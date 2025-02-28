@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<browsableCodeSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="DECORbrowsableCodeSystemOnly.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    id="HPO" 
+    url="URL"
+    oid="2.16.840.1.113883.6.339"
+    version="20220214"
+    statusCode="active"
+    experimental="false" 
+    effectiveDate="2022-02-14" 
+    defaultLanguage="en-US" 
+    content="complete" 
+    structure="network" 
+    type="simple" 
+    count="4">
+    <language complete="true">en-US</language>
+    <identifier system="HL7.org" id="2.16.840.1.113883.6.339"/>
+    <name language="en-US">HPO</name>
+    <logo link="http://www.human-phenotype-ontology.org">hpo-logo40.png</logo>
+    <license language="en-US">License restrictions apply to all files provided by the HPO project, see: <a xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" href="https://hpo.jax.org/app/license">https://hpo.jax.org/app/license</a></license>
+    <publishingAuthority name="Human Phenotype Ontology (HPO)">
+        <addrLine type="uri">http://www.human-phenotype-ontology.org</addrLine>
+    </publishingAuthority>
+    <description language="en-US"/>
+    <concept code="0001992" statusCode="active" level="1">
+        <designation lang="en-US" use="pref" statusCode="active" effectiveDate="" expirationDate="" count="2" length="16">Organic aciduria</designation>
+        <definition lang="en-US" statusCode="active">Excretion of non-amino organic acids in urine.Excretion of non-amino organic acids in urine.</definition>
+        <child cCode="0003159" subCount="0"/>
+        <child cCode="0003215" subCount="0"/>
+        <child cCode="0008336" subCount="0"/>
+        <child cCode="0033111" subCount="0"/>
+        <child cCode="0040156" subCount="12">
+            <label lang="en-US">Elevated urinary carboxylic acid</label>
+        </child>
+        <parent pCode="0012072" subCount="0"/>
+        <ancestor distance="1">0012072</ancestor>
+        <ancSlf>0012072</ancSlf>
+        <ancSlf>0001992</ancSlf>
+    </concept>
+    <concept code="0011977" statusCode="active" level="3">
+        <designation lang="en-US" use="pref" count="4" length="34">Elevated urinary homovanillic acid</designation>
+        <definition lang="en-US" >An increased concentration of homovanillic acid in the urine.An increased concentration of homovanillic acid in the urine.</definition>
+        <comment lang="en-US">Homovanillic acid is the main metabolite produced from dopamine degradation by the action of monoamine oxidase. Increased levels of catecholamines or catecholamine metabolites, including dopamine, homovanillic acid (HVA) and/or vanillylmandelic acid (VMA), can be detected in the urine of 90% of all patients with neuroblastoma.Homovanillic acid is the main
+            metabolite produced from dopamine degradation by the action of monoamine oxidase. Increased levels of catecholamines or catecholamine metabolites, including dopamine, homovanillic acid (HVA) and/or vanillylmandelic acid (VMA), can be detected in the urine of 90% of all patients with neuroblastoma.</comment>
+        <parent pCode="0040156" subCount="12">
+            <label lang="en-US">Elevated urinary carboxylic acid</label>
+        </parent>
+        <ancestor distance="1">0040156</ancestor>
+        <ancestor distance="2">0001992</ancestor>
+        <ancestor distance="3">0012072</ancestor>
+        <ancestor distance="2">0031980</ancestor>
+        <ancestor distance="3">0033354</ancestor>
+        <ancSlf>0040156</ancSlf>
+        <ancSlf>0001992</ancSlf>
+        <ancSlf>0012072</ancSlf>
+        <ancSlf>0031980</ancSlf>
+        <ancSlf>0033354</ancSlf>
+        <ancSlf>0011977</ancSlf>
+    </concept>
+    <concept code="0031980" statusCode="active" level="1">
+        <designation lang="en-US" use="pref" count="5" length="36">Abnormal urine carboxylic acid level</designation>
+        <definition lang="en-US">Any deviation from the normal concentration of a carboxylic acid in the urine.Any deviation from the normal concentration of a carboxylic acid in the urine.</definition>
+        <comment lang="en-US">Carboxylic acid refers to an organic compound that contains a carboxyl group (-COOH).Carboxylic acid refers to an organic compound that contains a carboxyl group (-COOH).</comment>
+        <child cCode="0003218" subCount="0"/>
+        <child cCode="0003535" subCount="0"/>
+        <child cCode="0020077" subCount="0"/>
+        <child cCode="0031981" subCount="0"/>
+        <child cCode="0033101" subCount="0"/>
+        <child cCode="0040156" subCount="12">
+            <label lang="en-US">Elevated urinary carboxylic acid</label>
+        </child>
+        <child cCode="0410066" subCount="0"/>
+        <parent pCode="0033354" subCount="0"/>
+        <ancestor distance="1">0033354</ancestor>
+        <ancSlf>0033354</ancSlf>
+        <ancSlf>0031980</ancSlf>
+    </concept>
+    <concept code="0040156" statusCode="active" level="2">
+        <designation lang="en-US" use="pref" count="4" length="32">Elevated urinary carboxylic acid</designation>
+        <definition lang="en-US">An increased amount of carboxylic acid in the urine.An increased amount of carboxylic acid in the urine.</definition>
+        <child cCode="0003161" subCount="0"/>
+        <child cCode="0003607" subCount="0"/>
+        <child cCode="0011977" subCount="0">
+            <label lang="en-US">Elevated urinary homovanillic acid</label>
+        </child>
+        <child cCode="0011978" subCount="0"/>
+        <child cCode="0012237" subCount="0"/>
+        <child cCode="0025631" subCount="0"/>
+        <child cCode="0025638" subCount="0"/>
+        <child cCode="0032638" subCount="0"/>
+        <child cCode="0033220" subCount="0"/>
+        <child cCode="0033303" subCount="0"/>
+        <child cCode="0033455" subCount="0"/>
+        <child cCode="0033596" subCount="0"/>
+        <parent pCode="0001992" subCount="5">
+            <label lang="en-US">Organic aciduria</label>
+        </parent>
+        <parent pCode="0031980" subCount="7">
+            <label lang="en-US">Abnormal urine carboxylic acid level</label>
+        </parent>
+        <ancestor distance="1">0001992</ancestor>
+        <ancestor distance="2">0012072</ancestor>
+        <ancestor distance="1">0031980</ancestor>
+        <ancestor distance="2">0033354</ancestor>
+        <ancSlf>0001992</ancSlf>
+        <ancSlf>0012072</ancSlf>
+        <ancSlf>0031980</ancSlf>
+        <ancSlf>0033354</ancSlf>
+        <ancSlf>0040156</ancSlf>
+    </concept>
+</browsableCodeSystem>

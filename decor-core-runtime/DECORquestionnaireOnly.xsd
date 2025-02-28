@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="DECOR.xsd"/>
+    <xs:element name="questionnaire" type="QuestionnaireType">
+        <xs:unique name="questionnaire-desc-language-unique">
+            <xs:selector xpath="desc"/>
+            <xs:field xpath="@language"/>
+        </xs:unique>
+        <xs:unique name="questionnaire-purpose-language-unique">
+            <xs:selector xpath="purpose"/>
+            <xs:field xpath="@language"/>
+        </xs:unique>
+        <xs:unique name="questionnaire-copyright-language-unique">
+            <xs:selector xpath="copyright"/>
+            <xs:field xpath="@language"/>
+        </xs:unique>
+    </xs:element>
+</xs:schema>

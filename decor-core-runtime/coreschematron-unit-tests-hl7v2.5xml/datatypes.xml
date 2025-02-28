@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="datatypes-unit-test.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<datatypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:v3 datatypes-unit-test.xsd" xmlns="urn:hl7-org:v2xml" xmlns:hl7="urn:hl7-org:v2xml">
+    <!-- AD TESTS -->
+     <aAD/>
+    <!-- AUI TESTS -->
+     <aAUI/>
+    <!-- CCD TESTS -->
+     <aCCD/>
+    <!-- CCP TESTS -->
+     <aCCP/>
+    <!-- CD TESTS -->
+     <aCD/>
+    <!-- CE TESTS -->
+     <aCE/>
+    <!-- CF TESTS -->
+     <aCF/>
+    <!-- CNE TESTS -->
+     <aCNE/>
+    <!-- CNN TESTS -->
+     <aCNN/>
+    <!-- CP TESTS -->
+     <aCP/>
+    <!-- CQ TESTS -->
+     <aCQ/>
+    <!-- CSU TESTS -->
+     <aCSU/>
+    <!-- CWE TESTS -->
+     <aCWE/>
+    <!-- CX TESTS -->
+     <aCX/>
+    <!-- DDI TESTS -->
+     <aDDI/>
+    <!-- DIN TESTS -->
+     <aDIN/>
+    <!-- DLD TESTS -->
+     <aDLD/>
+    <!-- DLN TESTS -->
+     <aDLN/>
+    <!-- DLT TESTS -->
+     <aDLT/>
+    <!-- DR TESTS -->
+     <aDR/>
+    <!-- DT TESTS -->
+     <aDT/>
+    <!-- DTM TESTS -->
+     <aDTM/>
+    <!-- DTN TESTS -->
+     <aDTN/>
+    <!-- ED TESTS -->
+     <aED/>
+    <!-- EI TESTS -->
+     <aEI/>
+    <!-- EIP TESTS -->
+     <aEIP/>
+    <!-- ELD TESTS -->
+     <aELD/>
+    <!-- ERL TESTS -->
+     <aERL/>
+    <!-- FC TESTS -->
+     <aFC/>
+    <!-- FN TESTS -->
+     <aFN/>
+    <!-- FT TESTS -->
+     <aFT/>
+    <!-- GTS TESTS -->
+     <aGTS/>
+    <!-- HD TESTS -->
+     <aHD/>
+    <!-- ICD TESTS -->
+     <aICD/>
+    <!-- ID TESTS -->
+     <aID/>
+    <!-- IS TESTS -->
+     <aIS/>
+    <!-- JCC TESTS -->
+     <aJCC/>
+    <!-- LA1 TESTS -->
+     <aLA1/>
+    <!-- LA2 TESTS -->
+     <aLA2/>
+    <!-- MA TESTS -->
+     <aMA/>
+    <!-- MO TESTS -->
+     <aMO/>
+    <!-- MOC TESTS -->
+     <aMOC/>
+    <!-- MOP TESTS -->
+     <aMOP/>
+    <!-- MSG TESTS -->
+     <aMSG/>
+    <!-- NA TESTS -->
+     <aNA/>
+    <!-- NDL TESTS -->
+     <aNDL/>
+    <!-- NM TESTS -->
+     <aNM/>
+    <!-- NR TESTS -->
+     <aNR/>
+    <!-- OCD TESTS -->
+     <aOCD/>
+    <!-- OSD TESTS -->
+     <aOSD/>
+    <!-- OSP TESTS -->
+     <aOSP/>
+    <!-- PIP TESTS -->
+     <aPIP/>
+    <!-- PL TESTS -->
+     <aPL/>
+    <!-- PLN TESTS -->
+     <aPLN/>
+    <!-- PPN TESTS -->
+     <aPPN/>
+    <!-- PRL TESTS -->
+     <aPRL/>
+    <!-- PT TESTS -->
+     <aPT/>
+    <!-- PTA TESTS -->
+     <aPTA/>
+    <!-- QIP TESTS -->
+     <aQIP/>
+    <!-- QSC TESTS -->
+     <aQSC/>
+    <!-- RCD TESTS -->
+     <aRCD/>
+    <!-- RFR TESTS -->
+     <aRFR/>
+    <!-- RI TESTS -->
+     <aRI/>
+    <!-- RMC TESTS -->
+     <aRMC/>
+    <!-- RP TESTS -->
+     <aRP/>
+    <!-- RPT TESTS -->
+     <aRPT/>
+    <!-- SAD TESTS -->
+     <aSAD/>
+    <!-- SCV TESTS -->
+     <aSCV/>
+    <!-- SI TESTS -->
+     <aSI/>
+    <!-- SN TESTS -->
+     <aSN/>
+    <!-- SPD TESTS -->
+     <aSPD/>
+    <!-- SPS TESTS -->
+     <aSPS/>
+    <!-- SRT TESTS -->
+     <aSRT/>
+    <!-- ST TESTS -->
+     <aST/>
+    <!-- TM TESTS -->
+     <aTM/>
+    <!-- TQ TESTS -->
+     <aTQ/>
+    <!-- TS TESTS -->
+     <aTS/>
+    <!-- TX TESTS -->
+     <aTX/>
+    <!-- UVC TESTS -->
+     <aUVC/>
+    <!-- varies TESTS -->
+     <avaries/>
+    <!-- VH TESTS -->
+     <aVH/>
+    <!-- VID TESTS -->
+     <aVID/>
+    <!-- VR TESTS -->
+     <aVR/>
+    <!-- WVI TESTS -->
+     <aWVI/>
+    <!-- WVS TESTS -->
+     <aWVS/>
+    <!-- XAD TESTS -->
+     <aXAD/>
+    <!-- XCN TESTS -->
+     <aXCN/>
+    <!-- XON TESTS -->
+     <aXON/>
+    <!-- XPN TESTS -->
+     <aXPN/>
+    <!-- XTN TESTS -->
+     <aXTN/>
+</datatypes>

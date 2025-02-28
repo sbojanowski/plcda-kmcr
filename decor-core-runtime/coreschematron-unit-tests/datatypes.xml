@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="datatypes-unit-test.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<datatypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:v3 datatypes-unit-test.xsd" xmlns="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3" xmlns:hl7nl="urn:hl7-nl:v3">
+    <!-- **** AD.DE TESTS **** -->
+    <AD.DE xsi:type="AD.DE" nullFlavor="NI"/>
+    <!-- **** AD.EPSOS TESTS **** -->
+    <AD.EPSOS xsi:type="AD.EPSOS" nullFlavor="NI"/>
+    <AD.IPS xsi:type="AD.IPS" nullFlavor="NI"/>
+    <!-- **** AD.NL TESTS **** -->
+    <AD.NL xsi:type="AD.NL" nullFlavor="NI"/>
+    <AD.CA.BASIC xsi:type="AD.CA" nullFlavor="NI"/>
+    <AD.CA xsi:type="AD.CA" use="H">
+        <postalCode>cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</postalCode>
+        <city>x</city>
+        <additionalLocator>y</additionalLocator>
+    </AD.CA>
+    <!-- **** AD TESTS **** -->
+    <AD xsi:type="AD" nullFlavor="NI"/>
+    <!-- **** ADXP TESTS **** -->
+    <ADXP xsi:type="ADXP" nullFlavor="NI"/>
+    <!-- **** ANY TESTS **** -->
+    <!--<ANY xsi:type="ANY" nullFlavor="NI"/>-->
+    <!-- **** BIN TESTS **** -->
+    <!--<BIN xsi:type="BIN" nullFlavor="NI"/>-->
+    <!-- **** BL TESTS **** -->
+    <BL xsi:type="BL" nullFlavor="NI"/>
+    <BL xsi:type="BL" value="true"/>
+    <!-- **** BN TESTS **** -->
+    <BN xsi:type="BN" value="true"/>
+    <!-- **** CD.EPSOS TESTS **** -->
+    <CD.EPSOS xsi:type="CD.EPSOS" nullFlavor="NI"/>
+    <CD.IPS xsi:type="CD.IPS" nullFlavor="NI"/>
+    <!-- **** CD.SDTC TESTS **** -->
+    <CD.SDTC xsi:type="CD.SDTC" nullFlavor="NI"/>
+    <!-- **** CD TESTS **** -->
+    <CD xsi:type="CD" nullFlavor="NI"/>
+    <!-- **** CE.EPSOS TESTS **** -->
+    <CE.EPSOS xsi:type="CE.EPSOS" nullFlavor="NI"/>
+    <CE.IPS xsi:type="CE.IPS" nullFlavor="NI"/>
+    <!-- **** CE TESTS **** -->
+    <CE xsi:type="CE" nullFlavor="NI"/>
+    <!-- **** CO.EPSOS TESTS **** -->
+    <CO.EPSOS xsi:type="CO.EPSOS" nullFlavor="NI"/>
+    <!-- **** CO TESTS **** -->
+    <CO xsi:type="CO" nullFlavor="NI"/>
+    <CO xsi:type="CO" code="CODE" codeSystem="1.2.9999"/>
+    <!-- **** CR TESTS **** -->
+    <CR xsi:type="CR" nullFlavor="NI"/>
+    <CR xsi:type="CR">
+        <name code="c" codeSystem="1.2.3" displayName="cc"/>
+        <value code="d" codeSystem="1.2.4" displayName="dd"/>
+    </CR>
+    <!-- **** CS.LANG TESTS **** -->
+    <CS.LANG xsi:type="CS.LANG" nullFlavor="NI"/>
+    <CS.LANG xsi:type="CS.LANG" code="en-US"/>
+    <!-- **** CS TESTS **** -->
+    <CS xsi:type="CS" nullFlavor="NI"/>
+    <CS xsi:type="CS" code="completed"/>
+    <!-- **** CV.EPSOS TESTS **** -->
+    <CV.EPSOS xsi:type="CV.EPSOS" nullFlavor="NI"/>
+    <CV.IPS xsi:type="CV.IPS" nullFlavor="NI"/>
+    <!-- **** CV TESTS **** -->
+    <CV xsi:type="CV" nullFlavor="NI"/>
+    <CV xsi:type="CV" code="17.000" codeSystem="2.16.840.1.113883.2.4.15.111"/>
+    <!-- **** ED TESTS **** -->
+    <ED xsi:type="ED" nullFlavor="NI"/>
+    <!-- **** EIVL.event TESTS **** -->
+    <EIVL.event xsi:type="EIVL.event" nullFlavor="NI"/>
+    <!-- **** EIVL_TS TESTS **** -->
+    <EIVL_TS xsi:type="EIVL_TS" nullFlavor="NI"/>
+    <!-- **** EN TESTS **** -->
+    <EN xsi:type="EN" use="L">Entity name</EN>
+    <EN xsi:type="EN" use="L">
+        <family>Entity</family>
+        <suffix>name</suffix>
+    </EN>
+    <EN xsi:type="EN" use="L OR">
+        <family>Entity</family>
+        <suffix>name</suffix>
+    </EN>
+    <!-- **** ENXP TESTS **** -->
+    <ENXP xsi:type="ENXP" nullFlavor="NI"/>
+    <!-- **** GLIST_PQ TESTS **** -->
+    <GLIST_PQ xsi:type="GLIST_PQ" denominator="5" period="3">
+        <head value="1" unit="m"/>
+        <increment value="2" unit="cm"/>
+    </GLIST_PQ>
+    <!-- **** GLIST_TS TESTS **** -->
+    <GLIST_TS xsi:type="GLIST_TS" denominator="5" period="3">
+        <head value="20200505"/>
+        <increment value="2" unit="h"/>
+    </GLIST_TS>
+    <!-- **** GTS TESTS **** -->
+    <!--<GTS xsi:type="GTS" nullFlavor="NI"/>-->
+    <!-- **** II.AT.ATU TESTS **** -->
+    <II.AT.ATU xsi:type="II.AT.ATU" nullFlavor="NI"/>
+    <!-- **** II.AT.BLZ TESTS **** -->
+    <II.AT.BLZ xsi:type="II.AT.BLZ" nullFlavor="NI"/>
+    <!-- **** II.AT.DVR TESTS **** -->
+    <II.AT.DVR xsi:type="II.AT.DVR" nullFlavor="NI"/>
+    <!-- **** II.AT.KTONR TESTS **** -->
+    <II.AT.KTONR xsi:type="II.AT.KTONR" nullFlavor="NI"/>
+    <!-- **** II.EPSOS TESTS **** -->
+    <II.EPSOS xsi:type="II.EPSOS" nullFlavor="NI"/>
+    <!-- **** II.NL.AGB TESTS **** -->
+    <II.NL.AGB xsi:type="II.NL.AGB" nullFlavor="NI"/>
+    <II.NL.AGB xsi:type="II.NL.AGB" root="2.16.840.1.113883.2.4.6.1" extension="01001234"/>
+    <!-- **** II.NL.BIG TESTS **** -->
+    <II.NL.BIG xsi:type="II.NL.BIG" nullFlavor="NI"/>
+    <II.NL.BIG xsi:type="II.NL.BIG" root="2.16.528.1.1007.5.1" extension="01001234"/>
+    <!-- **** II.NL.BSN TESTS **** -->
+    <II.NL.BSN xsi:type="II.NL.BSN" nullFlavor="NI"/>
+    <II.NL.BSN xsi:type="II.NL.BSN" root="2.16.840.1.113883.2.4.6.3" extension="123456782"/>
+    <!-- **** II.NL.URA TESTS **** -->
+    <II.NL.URA xsi:type="II.NL.URA" nullFlavor="NI"/>
+    <II.NL.URA xsi:type="II.NL.URA" root="2.16.528.1.1007.3.3" extension="12345678"/>
+    <!-- **** II.NL.UZI TESTS **** -->
+    <II.NL.UZI xsi:type="II.NL.UZI" nullFlavor="NI"/>
+    <II.NL.UZI xsi:type="II.NL.UZI" root="2.16.528.1.1007.3.1" extension="123456789"/>
+    <!-- **** II TESTS **** -->
+    <II xsi:type="II" nullFlavor="NI"/>
+    <II xsi:type="II" root="2.16.528.1.1007.3.1" extension="123456789"/>
+    <II xsi:type="II" root="2.16.528.1.1007.3.2"/>
+    <II xsi:type="II" nullFlavor="UNC" extension="123456789"/>
+    <II xsi:type="II" root="A0D61E40-A49B-11E3-A5E2-0800200C9A66"/>
+    <!-- **** INT.NONNEG TESTS **** -->
+    <INT.NONNEG xsi:type="INT.NONNEG" value="1"/>
+    <!-- **** INT.POS TESTS **** -->
+    <INT.POS xsi:type="INT.POS" value="1"/>
+    <!-- **** INT TESTS **** -->
+    <INT xsi:type="INT" value="-1"/>
+    <INT xsi:type="INT" value="0"/>
+    <INT xsi:type="INT" value="+1"/>
+    <!-- **** hl7nl-INT TESTS **** -->
+    <hl7nl-INT xsi:type="hl7nl:INT" value="1"/>
+    <hl7nl-IVL_QTY xsi:type="hl7nl:IVL_QTY" lowClosed="true">
+        <hl7nl:high xsi:type="hl7nl:INT" value="2"/>
+    </hl7nl-IVL_QTY>
+    <hl7nl-IVL_QTY xsi:type="hl7nl:IVL_QTY">
+        <hl7nl:low xsi:type="hl7nl:INT" value="1"/>
+        <hl7nl:high xsi:type="hl7nl:INT" value="2"/>
+    </hl7nl-IVL_QTY>
+    <!-- **** IVL TESTS **** -->
+    <!--<IVL xsi:type="IVL" nullFlavor="NI"/>-->
+    <!--<IVL xsi:type="IVL">
+        <low value="70" unit="%"/>
+        <high value="140" unit="%"/>
+    </element>-->
+    <!-- **** IVL_INT TESTS **** -->
+    <IVL_INT xsi:type="IVL_INT">
+        <low value="-70"/>
+        <high value="140"/>
+    </IVL_INT>
+    <!-- **** IVL_MO TESTS **** -->
+    <IVL_MO xsi:type="IVL_MO">
+        <low value="70"/>
+        <high value="140"/>
+    </IVL_MO>
+    <!-- **** IVL_PQ TESTS **** -->
+    <IVL_PQ xsi:type="IVL_PQ">
+        <low value="70" unit="%"/>
+        <high value="140" unit="%"/>
+    </IVL_PQ>
+    <IVL_PQ xsi:type="IVL_PQ" value="1" unit="1">
+        <translation value="1" code="900000000003" codeSystem="1.2.40.0.10.1.4.3.4.3.1" displayName="Stück"/>
+    </IVL_PQ>
+    <IVL_PQ xsi:type="IVL_PQ">
+        <center value="1" unit="drp">
+            <translation value="1" code="303" codeSystem="2.16.840.1.113883.2.4.4.1.900.2" displayName="Druppel"/>
+            <translation value="1" code="20" codeSystem="2.16.840.1.113883.2.4.4.1.361" displayName="Druppel"/>
+        </center>
+    </IVL_PQ>
+    <IVL_PQ xsi:type="IVL_PQ">
+        <low value="1">
+            <translation value="1" code="245" codeSystem="2.16.840.1.113883.2.4.4.1.900.2" displayName="Stuk"/>
+            <translation value="1" code="100" codeSystem="2.16.840.1.113883.2.4.4.1.361" displayName="Tablet"/>
+        </low>
+        <high value="2">
+            <translation value="2" code="245" codeSystem="2.16.840.1.113883.2.4.4.1.900.2" displayName="Stuk"/>
+            <translation value="2" code="100" codeSystem="2.16.840.1.113883.2.4.4.1.361" displayName="Tablet"/>
+        </high>
+    </IVL_PQ>
+    <!-- **** IVL_REAL TESTS **** -->
+    <IVL_REAL xsi:type="IVL_REAL">
+        <low value="70.005"/>
+        <high value="70.006"/>
+    </IVL_REAL>
+    <!-- **** IVL_TS.EPSOS.TZ.OPT TESTS **** -->
+    <IVL_TS.EPSOS.TZ.OPT xsi:type="IVL_TS.EPSOS.TZ.OPT" nullFlavor="NI"/>
+    <!-- **** IVL_TS.EPSOS.TZ TESTS **** -->
+    <IVL_TS.EPSOS.TZ xsi:type="IVL_TS.EPSOS.TZ" nullFlavor="NI"/>
+    <IVL_TS.IPS.TZ xsi:type="IVL_TS.IPS.TZ" nullFlavor="NI"/>
+    <!-- **** IVL_TS.CH.TZ TESTS **** -->
+    <IVL_TS.CH.TZ xsi:type="IVL_TS.CH.TZ" nullFlavor="NI"/>
+    <!-- **** IVL_TS TESTS **** -->
+    <IVL_TS xsi:type="IVL_TS">
+        <low value="20140101000000"/>
+        <high value="20140102235959"/>
+    </IVL_TS>
+    <!-- **** IVL_TS TESTS **** -->
+    <hl7nl-IVL_TS xsi:type="hl7nl:IVL_TS" nullFlavor="NI"/>
+    <!-- **** IVXB_INT TESTS **** -->
+    <IVXB_INT xsi:type="IVXB_INT" nullFlavor="NI"/>
+    <!-- **** IVXB_MO TESTS **** -->
+    <IVXB_MO xsi:type="IVXB_MO" nullFlavor="NI"/>
+    <!-- **** IVXB_PQ TESTS **** -->
+    <IVXB_PQ xsi:type="IVXB_PQ" nullFlavor="NI"/>
+    <!-- **** IVXB_REAL TESTS **** -->
+    <IVXB_REAL xsi:type="IVXB_REAL" nullFlavor="NI"/>
+    <!-- **** IVXB_TS TESTS **** -->
+    <IVXB_TS xsi:type="IVXB_TS" nullFlavor="NI"/>
+    <!-- **** LIST TESTS **** -->
+    <!--<LIST xsi:type="LIST" nullFlavor="NI"/>-->
+    <!-- **** MO TESTS **** -->
+    <MO xsi:type="MO" value="1.05" currency="USD"/>
+    <!--<MO xsi:type="MO" value="1.05" currency="USD">
+        <translation value=".55" code="EUR" codeSystem="2.16.840.1.113883.6.9"/>
+    </element>-->
+    <!-- **** ON TESTS **** -->
+    <ON xsi:type="ON">Organization name</ON>
+    <!-- **** PIVL_TS TESTS **** -->
+    <PIVL_TS xsi:type="PIVL_TS">
+        <period value="0.5" unit="d"/>
+    </PIVL_TS>
+    <!-- **** PIVL_TS TESTS **** -->
+    <hl7nl-PIVL_TS xsi:type="hl7nl:PIVL_TS">
+        <hl7nl:period value="0.5" unit="d"/>
+        <hl7nl:count value="2"/>
+    </hl7nl-PIVL_TS>
+    <!-- **** PN.NL TESTS **** -->
+    <PN.NL xsi:type="PN.NL" use="L">
+        <given qualifier="IN">I.</given>
+        <prefix qualifier="VV">van </prefix>
+        <family>Boom</family>
+        <suffix>sr.</suffix>
+    </PN.NL>
+    <!-- **** PN TESTS **** -->
+    <PN.CA xsi:type="PN.CA" use="L">
+        <given qualifier="IN">G</given>
+        <family>Entity</family>
+        <suffix>name</suffix>
+    </PN.CA>
+    <PN.CA xsi:type="PN.CA" use="L">
+        <given qualifier="IN">X</given>
+        <family>Entity</family>
+        <suffix>name</suffix>
+    </PN.CA>
+    <PN xsi:type="PN" use="L">Entity name</PN>
+    <PN xsi:type="PN" use="L">
+        <family>Entity</family>
+        <suffix>name</suffix>
+    </PN>
+    <!-- **** PQ TESTS **** -->
+    <PQ xsi:type="PQ" nullFlavor="NI"/>
+    <!-- **** hl7nl-PQ TESTS **** -->
+    <hl7nl-PQ xsi:type="hl7nl:PQ" nullFlavor="NI"/>
+    <!-- **** PQR TESTS **** -->
+    <PQR xsi:type="PQR" nullFlavor="NI"/>
+    <!-- **** QTY TESTS **** -->
+    <!--<QTY xsi:type="QTY" nullFlavor="NI"/>-->
+    <!-- **** REAL.NONNEG TESTS **** -->
+    <REAL.NONNEG xsi:type="REAL.NONNEG" nullFlavor="NI"/>
+    <!-- **** REAL.POS TESTS **** -->
+    <REAL.POS xsi:type="REAL.POS" nullFlavor="NI"/>
+    <!-- **** REAL TESTS **** -->
+    <REAL xsi:type="REAL" nullFlavor="NI"/>
+    <!-- **** RTO TESTS **** -->
+    <RTO xsi:type="RTO">
+        <numerator xsi:type="PQ" value="200" unit="mg"/>
+        <denominator xsi:type="PQ" value="1" unit="d"/>
+    </RTO>
+    <!-- **** hl7nl-RTO TESTS **** -->
+    <hl7nl-RTO xsi:type="hl7nl:RTO">
+        <hl7nl:numerator xsi:type="hl7nl:PQ" value="200" unit="mg"/>
+        <hl7nl:denominator xsi:type="hl7nl:PQ" value="1" unit="d"/>
+    </hl7nl-RTO>
+    <!-- **** RTO_PQ_PQ TESTS **** -->
+    <RTO_PQ_PQ xsi:type="RTO_PQ_PQ">
+        <numerator xsi:type="PQ" value="200" unit="mg"/>
+        <denominator xsi:type="PQ" value="1" unit="d"/>
+    </RTO_PQ_PQ>
+    <RTO_PQ_PQ xsi:type="RTO_PQ_PQ">
+        <numerator xsi:type="IVL_PQ">
+            <low value="200" unit="mg">
+                <translation value="200" code="229" codeSystem="2.16.840.1.113883.2.4.4.1.900.2" displayName="Milligram"/>
+            </low>
+            <high value="400" unit="mg" >
+                <translation value="400" code="229" codeSystem="2.16.840.1.113883.2.4.4.1.900.2" displayName="Milligram"/>
+            </high>
+        </numerator>
+        <denominator xsi:type="PQ" value="1" unit="d"/>
+    </RTO_PQ_PQ>
+    <!-- **** RTO_QTY_QTY TESTS **** -->
+    <RTO_QTY_QTY xsi:type="RTO_QTY_QTY">
+        <numerator xsi:type="PQ" value="200" unit="mg"/>
+        <denominator xsi:type="PQ" value="1" unit="d"/>
+    </RTO_QTY_QTY>
+    <RTO_QTY_QTY xsi:type="RTO_QTY_QTY">
+        <numerator xsi:type="PQ" value="3" unit="g">
+            <translation value="3" code="215" codeSystem="2.16.840.1.113883.2.4.4.1.900.2" displayName="Gram"/>
+            <translation value="3" code="34" codeSystem="2.16.840.1.113883.2.4.4.1.361" displayName="Gram"/>
+        </numerator>
+        <denominator xsi:type="PQ" value="1" unit="d"/>
+    </RTO_QTY_QTY>
+    <!-- **** SC TESTS **** -->
+    <SC xsi:type="SC" nullFlavor="NI"/>
+    <SC xsi:type="SC">String</SC>
+    <SC xsi:type="SC" code="S" codeSystem="1.2.3.999">String</SC>
+    <!-- **** SD.TEXT TESTS **** -->
+    <SD.TEXT xsi:type="SD.TEXT">
+        <paragraph language="en-US">text of paragraph</paragraph>
+    </SD.TEXT>
+    <!-- **** SLIST_PQ TESTS **** -->
+    <SLIST_PQ xsi:type="SLIST_PQ">
+        <origin value="1" unit="m"/>
+        <scale value="2" unit="cm"/>
+        <digits>1 2 3 4 5</digits>
+    </SLIST_PQ>
+    <list_int xsi:type="list_int">1 2 3 4 5</list_int>
+    <!-- **** SLIST_TS TESTS **** -->
+    <SLIST_TS xsi:type="SLIST_TS">
+        <origin value="20200505"/>
+        <scale value="2" unit="min"/>
+        <digits>1 2 3 4 5</digits>
+    </SLIST_TS>
+    <!-- **** ST TESTS **** -->
+    <ST xsi:type="ST" nullFlavor="NI"/>
+    <!-- **** SXCM TESTS **** -->
+    <!--<SXCM xsi:type="SXCM" nullFlavor="NI"/>-->
+    <!-- **** SXCM_INT TESTS **** -->
+    <SXCM_INT xsi:type="SXCM_INT" nullFlavor="NI"/>
+    <!-- **** SXCM_MO TESTS **** -->
+    <SXCM_MO xsi:type="SXCM_MO" nullFlavor="NI"/>
+    <!-- **** SXCM_PQ TESTS **** -->
+    <SXCM_PQ xsi:type="SXCM_PQ" nullFlavor="NI"/>
+    <!-- **** SXCM_REAL TESTS **** -->
+    <SXCM_REAL xsi:type="SXCM_REAL" nullFlavor="NI"/>
+    <!-- **** SXCM_TS TESTS **** -->
+    <SXCM_TS xsi:type="SXCM_TS" nullFlavor="NI"/>
+    <!-- **** SXPR_TS TESTS **** -->
+    <SXPR_TS xsi:type="SXPR_TS">
+        <comp xsi:type="IVL_TS">
+            <low value="20040810"/>
+            <width value="2" unit="wk"/>
+        </comp>
+        <comp xsi:type="PIVL_TS" operator="A">
+            <period value="12" unit="h"/>
+        </comp>
+    </SXPR_TS>
+    <!-- **** TEL.AT TESTS **** -->
+    <TEL.AT xsi:type="TEL.AT" nullFlavor="NI"/>
+    <!-- **** TEL.EPSOS TESTS **** -->
+    <TEL.EPSOS xsi:type="TEL.EPSOS" nullFlavor="NI"/>
+    <!-- **** TEL.NL.EXTENDED TESTS **** -->
+    <TEL.NL.EXTENDED xsi:type="TEL.NL.EXTENDED" nullFlavor="NI"/>
+    <TEL.CA.EMAIL xsi:type="TEL.CA.EMAIL" use="TMP EC WP" value="mailto:xy.de"/>
+    <TEL.CA.PHONE xsi:type="TEL.CA.PHONE" nullFlavor="NI"/>
+    <!-- **** TEL TESTS **** -->
+    <TEL xsi:type="TEL" nullFlavor="NI"/>
+    <!-- **** TN TESTS **** -->
+    <TN xsi:type="TN" nullFlavor="NI"/>
+    <!-- **** TS.DATE.FULL TESTS **** -->
+    <TS.DATE.FULL xsi:type="TS.DATE.FULL" nullFlavor="NI"/>
+    <!-- **** TS.DATE.MIN TESTS **** -->
+    <TS.DATE.MIN xsi:type="TS.DATE.MIN" nullFlavor="NI"/>
+    <!-- **** TS.DATE TESTS **** -->
+    <TS.DATE xsi:type="TS.DATE" nullFlavor="NI"/>
+    <!-- **** TS.DATETIME.MIN TESTS **** -->
+    <TS.DATETIME.MIN xsi:type="TS.DATETIME.MIN" nullFlavor="NI"/>
+    <!-- **** TS.DATETIMETZ.MIN TESTS **** -->
+    <TS.DATETIMETZ.MIN xsi:type="TS.DATETIMETZ.MIN" nullFlavor="NI"/>
+    <!-- **** TS.EPSOS.TZ.OPT TESTS **** -->
+    <TS.EPSOS.TZ.OPT xsi:type="TS.EPSOS.TZ.OPT" nullFlavor="NI"/>
+    <!-- **** TS.EPSOS.TZ TESTS **** -->
+    <TS.EPSOS.TZ xsi:type="TS.EPSOS.TZ" nullFlavor="NI"/>
+    <TS.IPS.TZ xsi:type="TS.IPS.TZ" nullFlavor="NI"/>
+    <!-- **** TS.CH.TZ TESTS **** -->
+    <TS.CH.TZ xsi:type="TS.CH.TZ" nullFlavor="NI"/>
+    <!-- **** TS.AT.TZ TESTS **** -->
+    <!--<TS.AT.TZ xsi:type="TS.AT.TZ" nullFlavor="NI"/>-->
+    <TS.AT.TZ xsi:type="TS.AT.TZ" value="2020"/>
+    <TS.AT.TZ xsi:type="TS.AT.TZ" value="202005"/>
+    <TS.AT.TZ xsi:type="TS.AT.TZ" value="20200526"/>
+    <TS.AT.TZ xsi:type="TS.AT.TZ" value="20200526123456+0200"/>
+    <!-- **** TS.AT.VAR TESTS **** -->
+    <TS.AT.VAR xsi:type="TS.AT.VAR" value="2020"/>
+    <TS.AT.VAR xsi:type="TS.AT.VAR" value="202005"/>
+    <TS.AT.VAR xsi:type="TS.AT.VAR" value="20200526"/>
+    <TS.AT.VAR xsi:type="TS.AT.VAR" value="20200526123456+0200"/>
+    <!-- **** TS TESTS **** -->
+    <TS xsi:type="TS" nullFlavor="NI"/>
+    <!-- **** hl7nl-TS TESTS **** -->
+    <hl7nl-TS xsi:type="hl7nl:TS" nullFlavor="NI"/>
+    <!-- **** URL.NL.EXTENDED TESTS **** -->
+    <URL.NL.EXTENDED xsi:type="URL.NL.EXTENDED" nullFlavor="NI"/>
+    <!-- **** URL TESTS **** -->
+    <!--<URL xsi:type="URL" nullFlavor="NI"/>-->
+    <!-- **** thumbnail TESTS **** -->
+    <thumbnail xsi:type="thumbnail" nullFlavor="NI"/>
+</datatypes>

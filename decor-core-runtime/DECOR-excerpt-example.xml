@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="DECOR-excerpt.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<decor-excerpt xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="DECOR-excerpt.xsd" xmlns:hl7="urn:hl7-org:v3">
+    <terminology>
+        <!-- 
+            Value Sets
+        -->
+        <valueSet id="2.16.840.1.113883.11.20.9.21" name="AgePQ_UCUM" displayName="AgePQ_UCUM" effectiveDate="2013-01-31T00:00:00" statusCode="final">
+            <conceptList>
+                <concept code="min" codeSystem="2.16.840.1.113883.6.8" displayName="Minute" level="0" type="L"/>
+                <concept code="h" codeSystem="2.16.840.1.113883.6.8" displayName="Hour" level="0" type="L"/>
+                <concept code="d" codeSystem="2.16.840.1.113883.6.8" displayName="Day" level="0" type="L"/>
+                <concept code="wk" codeSystem="2.16.840.1.113883.6.8" displayName="Week" level="0" type="L"/>
+                <concept code="mo" codeSystem="2.16.840.1.113883.6.8" displayName="Month" level="0" type="L"/>
+                <concept code="a" codeSystem="2.16.840.1.113883.6.8" displayName="Year" level="0" type="L"/>
+            </conceptList>
+        </valueSet>
+    </terminology>
+    <rules>
+        <!-- 
+            Template: CDA custodian
+        -->
+        <template id="2.16.840.1.113883.3.1937.99.61.6.10.2003" name="CDAcustodian" displayName="CDA custodian" effectiveDate="2013-12-05T00:00:00" statusCode="active">
+            <desc language="en-US">Custodian of the document</desc>
+            <classification type="cdaheaderlevel"/>
+            <example>
+                <custodian>
+                    <assignedCustodian>
+                        <representedCustodianOrganization>
+                            <id root="2.16.840.1.113883.3.1937.99.3.2.997788"/>
+                        </representedCustodianOrganization>
+                    </assignedCustodian>
+                </custodian>
+            </example>
+            <element name="hl7:custodian" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true">
+                <attribute name="typeCode" value="CST" isOptional="true"/>
+                <element name="hl7:assignedCustodian" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true">
+                    <attribute name="classCode" value="ASSIGNED" isOptional="true"/>
+                    <element name="hl7:representedCustodianOrganization" minimumMultiplicity="0" maximumMultiplicity="1">
+                        <element name="hl7:id" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R" datatype="II"/>
+                    </element>
+                </element>
+            </element>
+        </template>
+        <!-- 
+            Template: Age Observation
+        -->
+        <template id="2.16.840.1.113883.10.20.22.4.31" name="AgeObservation" effectiveDate="2013-01-31T00:00:00" statusCode="draft" displayName="Age Observation">
+            <desc language="en-US">This Age Observation represents...</desc>
+            <classification type="cdaentrylevel"/>
+            <context id="**"/>
+            <example>
+                <observation classCode="OBS" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.22.4.31"/>
+                    <code code="397659008" codeSystem="2.16.840.1.113883.6.96" displayName="Age"/>
+                    <statusCode code="completed"/>
+                    <value xsi:type="PQ" value="57" unit="a"/>
+                </observation>
+            </example>
+            <element name="hl7:observation">
+                <attribute name="classCode" value="OBS"/>
+                <attribute name="moodCode" value="EVN"/>
+                <element name="hl7:templateId" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true">
+                    <attribute name="root" value="2.16.840.1.113883.10.20.22.4.31"/>
+                </element>
+                <element name="hl7:code" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true">
+                    <vocabulary code="445518008" codeSystem="2.16.840.1.113883.6.96"/>
+                </element>
+                <element name="hl7:statusCode" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true">
+                    <vocabulary code="completed"/>
+                </element>
+                <element name="hl7:value" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true" datatype="PQ">
+                    <attribute name="unit">
+                        <vocabulary valueSet="2.16.840.1.113883.11.20.9.21"/>
+                    </attribute>
+                </element>
+            </element>
+        </template>
+        <!-- 
+            Template: EKG Impression Section
+        -->
+        <template id="2.16.840.1.113883.3.1937.99.61.6.10.3001" name="EKGImpressionSection" displayName="EKG Impression Section" effectiveDate="2013-02-10T00:00:00" statusCode="active">
+            <desc language="en-US">This section describes the impression (findings) of an EKG study of a patient</desc>
+            <classification type="cdasectionlevel"/>
+            <context id="**"/>
+            <example>
+                <section classCode="DOCSECT">
+                    <!-- Template id for EKG measurements -->
+                    <templateId root="2.16.840.1.113883.3.1937.99.61.6.10.3001"/>
+                    <code code="18844-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Impression</title>
+                    <text>Normal sinus rhythm<br/> Ischemic ST-T changes in anterior leads<br/> Poor R Progression in right precordial leads</text>
+                </section>
+            </example>
+            <element name="hl7:section">
+                <attribute name="classCode" value="DOCSECT" isOptional="true"/>
+                <!-- Element templateId -->
+                <element name="hl7:templateId" minimumMultiplicity="1" maximumMultiplicity="1" datatype="II">
+                    <attribute name="root" value="2.16.840.1.113883.3.1937.99.61.6.10.3001"/>
+                </element>
+                <!-- Element code -->
+                <element name="hl7:code" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true" datatype="CD">
+                    <vocabulary code="18844-1" codeSystem="2.16.840.1.113883.6.1"/>
+                </element>
+                <!-- Element title -->
+                <element  minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true" datatype="ST"/>
+                <!-- Element text -->
+                <element name="hl7:text" minimumMultiplicity="1" maximumMultiplicity="1" isMandatory="true" datatype="SD.TEXT"/>
+            </element>
+        </template>
+    </rules>
+</decor-excerpt>

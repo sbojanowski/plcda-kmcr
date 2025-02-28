@@ -1,0 +1,66 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="testset">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="release" minOccurs="0" maxOccurs="1"/>
+                <xs:element maxOccurs="unbounded" ref="test"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required"/>
+            <xs:attribute name="version" use="required" type="xs:dateTime"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="release">
+        <xs:complexType>
+            <xs:attribute name="uri" use="required" type="xs:anyURI"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="test">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name" maxOccurs="unbounded"/>
+                <xs:element ref="desc" maxOccurs="unbounded"/>
+                <xs:element ref="suppliedConcepts" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="id" use="optional"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="transactionRef" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="name">
+        <xs:complexType mixed="true">
+            <xs:attribute name="language" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="desc">
+        <xs:complexType mixed="true">
+            <xs:attribute name="language" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="suppliedConcepts">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice minOccurs="1" maxOccurs="unbounded">
+                    <xs:element ref="concept"/>
+                    <xs:element ref="assert"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="context" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="concept">
+        <xs:complexType mixed="true">
+            <xs:attribute name="assert" use="optional"/>
+            <xs:attribute name="multiplicity" type="xs:integer"/>
+            <xs:attribute name="occurrence" type="xs:string"/>
+            <xs:attribute name="ref" use="required"/>
+            <xs:attribute name="shortName" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="assert">
+        <xs:complexType mixed="true">
+            <xs:attribute name="test" use="optional"/>
+            <xs:attribute name="role" use="optional"/>
+            <xs:attribute name="see" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

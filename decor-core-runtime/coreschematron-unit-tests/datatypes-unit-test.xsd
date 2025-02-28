@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3" xmlns:hl7nl="urn:hl7-nl:v3" targetNamespace="urn:hl7-org:v3" elementFormDefault="qualified">
+    <xs:include schemaLocation="coreschemas/datatypes.xsd"/>
+    <xs:include schemaLocation="coreschemas/NarrativeBlock.xsd"/>
+    <xs:import namespace="urn:hl7-nl:v3" schemaLocation="coreschemas/datatypes-extensions-hl7nl.xsd"/>
+    
+    <xs:element name="datatypes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="AD.DE" type="AD.DE" maxOccurs="unbounded"/>
+                <xs:element name="AD.EPSOS" type="AD.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="AD.IPS" type="AD.IPS" maxOccurs="unbounded"/>
+                <xs:element name="AD.NL" type="AD.NL" maxOccurs="unbounded"/>
+                <xs:element name="AD.CA.BASIC" type="AD.CA" maxOccurs="unbounded"/>
+                <xs:element name="AD.CA" type="AD.CA" maxOccurs="unbounded"/>
+                <xs:element name="AD" type="AD" maxOccurs="unbounded"/>
+                <xs:element name="ADXP" type="ADXP" maxOccurs="unbounded"/>
+                <xs:element name="BL" type="BL" maxOccurs="unbounded"/>
+                <xs:element name="BN" type="BN" maxOccurs="unbounded"/>
+                <xs:element name="CD.EPSOS" type="CD.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="CD.IPS" type="CD.IPS" maxOccurs="unbounded"/>
+                <xs:element name="CD.SDTC" type="CD.SDTC" maxOccurs="unbounded"/>
+                <xs:element name="CD" type="CD" maxOccurs="unbounded"/>
+                <xs:element name="CE.EPSOS" type="CE.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="CE.IPS" type="CE.IPS" maxOccurs="unbounded"/>
+                <xs:element name="CE" type="CE" maxOccurs="unbounded"/>
+                <xs:element name="CO.EPSOS" type="CO.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="CO" type="CO" maxOccurs="unbounded"/>
+                <xs:element name="CR" type="CR" maxOccurs="unbounded"/>
+                <xs:element name="CS.LANG" type="CS.LANG" maxOccurs="unbounded"/>
+                <xs:element name="CS" type="CS" maxOccurs="unbounded"/>
+                <xs:element name="CV.EPSOS" type="CV.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="CV.IPS" type="CV.IPS" maxOccurs="unbounded"/>
+                <xs:element name="CV" type="CV" maxOccurs="unbounded"/>
+                <xs:element name="ED" type="ED" maxOccurs="unbounded"/>
+                <xs:element name="EIVL.event" type="EIVL.event" maxOccurs="unbounded"/>
+                <xs:element name="EIVL_TS" type="EIVL_TS" maxOccurs="unbounded"/>
+                <xs:element name="EN" type="EN" maxOccurs="unbounded"/>
+                <xs:element name="ENXP" type="ENXP" maxOccurs="unbounded"/>
+                <xs:element name="GLIST_PQ" type="GLIST_PQ" maxOccurs="unbounded"/>
+                <xs:element name="GLIST_TS" type="GLIST_TS" maxOccurs="unbounded"/>
+                <xs:element name="II.AT.ATU" type="II.AT.ATU" maxOccurs="unbounded"/>
+                <xs:element name="II.AT.BLZ" type="II.AT.BLZ" maxOccurs="unbounded"/>
+                <xs:element name="II.AT.DVR" type="II.AT.DVR" maxOccurs="unbounded"/>
+                <xs:element name="II.AT.KTONR" type="II.AT.KTONR" maxOccurs="unbounded"/>
+                <xs:element name="II.EPSOS" type="II.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="II.NL.AGB" type="II.NL.AGB" maxOccurs="unbounded"/>
+                <xs:element name="II.NL.BIG" type="II.NL.BIG" maxOccurs="unbounded"/>
+                <xs:element name="II.NL.BSN" type="II.NL.BSN" maxOccurs="unbounded"/>
+                <xs:element name="II.NL.URA" type="II.NL.URA" maxOccurs="unbounded"/>
+                <xs:element name="II.NL.UZI" type="II.NL.UZI" maxOccurs="unbounded"/>
+                <xs:element name="II" type="II" maxOccurs="unbounded"/>
+                <xs:element name="INT.NONNEG" type="INT.NONNEG" maxOccurs="unbounded"/>
+                <xs:element name="INT.POS" type="INT.POS" maxOccurs="unbounded"/>
+                <xs:element name="INT" type="INT" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-INT" type="hl7nl:INT" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-IVL_QTY" type="hl7nl:IVL_QTY" maxOccurs="unbounded"/>
+                <xs:element name="IVL_INT" type="IVL_INT" maxOccurs="unbounded"/>
+                <xs:element name="IVL_MO" type="IVL_MO" maxOccurs="unbounded"/>
+                <xs:element name="IVL_PQ" type="IVL_PQ" maxOccurs="unbounded"/>
+                <xs:element name="IVL_REAL" type="IVL_REAL" maxOccurs="unbounded"/>
+                <xs:element name="IVL_TS.EPSOS.TZ.OPT" type="IVL_TS.EPSOS.TZ.OPT" maxOccurs="unbounded"/>
+                <xs:element name="IVL_TS.EPSOS.TZ" type="IVL_TS.EPSOS.TZ" maxOccurs="unbounded"/>
+                <xs:element name="IVL_TS.IPS.TZ" type="IVL_TS.IPS.TZ" maxOccurs="unbounded"/>
+                <xs:element name="IVL_TS.CH.TZ" type="IVL_TS.CH.TZ" maxOccurs="unbounded"/>
+                <xs:element name="IVL_TS" type="IVL_TS" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-IVL_TS" type="hl7nl:IVL_TS" maxOccurs="unbounded"/>
+                <xs:element name="IVXB_INT" type="IVXB_INT" maxOccurs="unbounded"/>
+                <xs:element name="IVXB_MO" type="IVXB_MO" maxOccurs="unbounded"/>
+                <xs:element name="IVXB_PQ" type="IVXB_PQ" maxOccurs="unbounded"/>
+                <xs:element name="IVXB_REAL" type="IVXB_REAL" maxOccurs="unbounded"/>
+                <xs:element name="IVXB_TS" type="IVXB_TS" maxOccurs="unbounded"/>
+                <xs:element name="MO" type="MO" maxOccurs="unbounded"/>
+                <xs:element name="ON" type="ON" maxOccurs="unbounded"/>
+                <xs:element name="PIVL_TS" type="PIVL_TS" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-PIVL_TS" type="hl7nl:PIVL_TS" maxOccurs="unbounded"/>
+                <xs:element name="PN.NL" type="PN.NL" maxOccurs="unbounded"/>
+                <xs:element name="PN.CA" type="PN.CA" maxOccurs="unbounded"/>
+                <xs:element name="PN" type="PN" maxOccurs="unbounded"/>
+                <xs:element name="PQ" type="PQ" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-PQ" type="hl7nl:PQ" maxOccurs="unbounded"/>
+                <xs:element name="PQR" type="PQR" maxOccurs="unbounded"/>
+                <xs:element name="REAL.NONNEG" type="REAL.NONNEG" maxOccurs="unbounded"/>
+                <xs:element name="REAL.POS" type="REAL.POS" maxOccurs="unbounded"/>
+                <xs:element name="REAL" type="REAL" maxOccurs="unbounded"/>
+                <xs:element name="RTO" type="RTO" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-RTO" type="hl7nl:RTO" maxOccurs="unbounded"/>
+                <xs:element name="RTO_PQ_PQ" type="RTO_PQ_PQ" maxOccurs="unbounded"/>
+                <xs:element name="RTO_QTY_QTY" type="RTO_QTY_QTY" maxOccurs="unbounded"/>
+                <xs:element name="SC" type="SC" maxOccurs="unbounded"/>
+                <xs:element name="SD.TEXT" type="SD.TEXT" maxOccurs="unbounded"/>
+                <xs:element name="SLIST_PQ" type="SLIST_PQ" maxOccurs="unbounded"/>
+                <xs:element name="list_int" type="list_int" maxOccurs="unbounded"/>
+                <xs:element name="SLIST_TS" type="SLIST_TS" maxOccurs="unbounded"/>
+                <xs:element name="ST" type="ST" maxOccurs="unbounded"/>
+                <xs:element name="SXCM_INT" type="SXCM_INT" maxOccurs="unbounded"/>
+                <xs:element name="SXCM_MO" type="SXCM_MO" maxOccurs="unbounded"/>
+                <xs:element name="SXCM_PQ" type="SXCM_PQ" maxOccurs="unbounded"/>
+                <xs:element name="SXCM_REAL" type="SXCM_REAL" maxOccurs="unbounded"/>
+                <xs:element name="SXCM_TS" type="SXCM_TS" maxOccurs="unbounded"/>
+                <xs:element name="SXPR_TS" type="SXPR_TS" maxOccurs="unbounded"/>
+                <xs:element name="TEL.AT" type="TEL.AT" maxOccurs="unbounded"/>
+                <xs:element name="TEL.EPSOS" type="TEL.EPSOS" maxOccurs="unbounded"/>
+                <xs:element name="TEL.NL.EXTENDED" type="TEL.NL.EXTENDED" maxOccurs="unbounded"/>
+                <xs:element name="TEL.CA.EMAIL" type="TEL.CA.EMAIL" maxOccurs="unbounded"/>
+                <xs:element name="TEL.CA.PHONE" type="TEL.CA.PHONE" maxOccurs="unbounded"/>
+                <xs:element name="TEL" type="TEL" maxOccurs="unbounded"/>
+                <xs:element name="TN" type="TN" maxOccurs="unbounded"/>
+                <xs:element name="TS.DATE.FULL" type="TS.DATE.FULL" maxOccurs="unbounded"/>
+                <xs:element name="TS.DATE.MIN" type="TS.DATE.MIN" maxOccurs="unbounded"/>
+                <xs:element name="TS.DATE" type="TS.DATE" maxOccurs="unbounded"/>
+                <xs:element name="TS.DATETIME.MIN" type="TS.DATETIME.MIN" maxOccurs="unbounded"/>
+                <xs:element name="TS.DATETIMETZ.MIN" type="TS.DATETIMETZ.MIN" maxOccurs="unbounded"/>
+                <xs:element name="TS.EPSOS.TZ.OPT" type="TS.EPSOS.TZ.OPT" maxOccurs="unbounded"/>
+                <xs:element name="TS.EPSOS.TZ" type="TS.EPSOS.TZ" maxOccurs="unbounded"/>
+                <xs:element name="TS.IPS.TZ" type="TS.IPS.TZ" maxOccurs="unbounded"/>
+                <xs:element name="TS.CH.TZ" type="TS.CH.TZ" maxOccurs="unbounded"/>
+                <xs:element name="TS.AT.TZ" type="TS.AT.TZ" maxOccurs="unbounded"/>
+                <xs:element name="TS.AT.VAR" type="TS.AT.VAR" maxOccurs="unbounded"/>
+                <xs:element name="TS" type="TS" maxOccurs="unbounded"/>
+                <xs:element name="hl7nl-TS" type="hl7nl:TS" maxOccurs="unbounded"/>
+                <xs:element name="URL.NL.EXTENDED" type="URL.NL.EXTENDED" maxOccurs="unbounded"/>
+                <!--<xs:element name="URL" type="URL" maxOccurs="unbounded"/>-->
+                <xs:element name="thumbnail" type="thumbnail" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="AD.DE">
+        <xs:complexContent>
+            <xs:extension base="AD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AD.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="AD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AD.IPS">
+        <xs:complexContent>
+            <xs:extension base="AD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AD.NL">
+        <xs:complexContent>
+            <xs:extension base="AD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AD.CA.BASIC">
+        <xs:complexContent>
+            <xs:extension base="AD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AD.CA">
+        <xs:complexContent>
+            <xs:extension base="AD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CD.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="CD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CD.IPS">
+        <xs:complexContent>
+            <xs:extension base="CD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CD.SDTC">
+        <xs:complexContent>
+            <xs:extension base="CD"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CE.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="CE"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CE.IPS">
+        <xs:complexContent>
+            <xs:extension base="CE"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CO.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="CO"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CV.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="CV"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CV.IPS">
+        <xs:complexContent>
+            <xs:extension base="CV"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CS.LANG">
+        <xs:complexContent>
+            <xs:extension base="CS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.AT.ATU">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.AT.BLZ">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.AT.DVR">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.AT.KTONR">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.NL.AGB">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.NL.BIG">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.NL.BSN">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.NL.URA">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="II.NL.UZI">
+        <xs:complexContent>
+            <xs:extension base="II"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="INT.NONNEG">
+        <xs:complexContent>
+            <xs:extension base="INT"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="INT.POS">
+        <xs:complexContent>
+            <xs:extension base="INT"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IVL_TS.EPSOS.TZ.OPT">
+        <xs:complexContent>
+            <xs:extension base="IVL_TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IVL_TS.EPSOS.TZ">
+        <xs:complexContent>
+            <xs:extension base="IVL_TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IVL_TS.IPS.TZ">
+        <xs:complexContent>
+            <xs:extension base="IVL_TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IVL_TS.CH.TZ">
+        <xs:complexContent>
+            <xs:extension base="IVL_TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="PN.NL">
+        <xs:complexContent>
+            <xs:extension base="PN"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="PN.CA">
+        <xs:complexContent>
+            <xs:extension base="PN"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="REAL.NONNEG">
+        <xs:complexContent>
+            <xs:extension base="REAL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="REAL.POS">
+        <xs:complexContent>
+            <xs:extension base="REAL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="SD.TEXT">
+        <xs:complexContent>
+            <xs:extension base="StrucDoc.Text"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TEL.AT">
+        <xs:complexContent>
+            <xs:extension base="TEL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TEL.EPSOS">
+        <xs:complexContent>
+            <xs:extension base="TEL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TEL.NL.EXTENDED">
+        <xs:complexContent>
+            <xs:extension base="TEL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TEL.CA.EMAIL">
+        <xs:complexContent>
+            <xs:extension base="TEL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TEL.CA.PHONE">
+        <xs:complexContent>
+            <xs:extension base="TEL"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.DATE.FULL">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.DATE.MIN">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.DATE">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.DATETIME.MIN">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.DATETIMETZ.MIN">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.EPSOS.TZ.OPT">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.EPSOS.TZ">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.IPS.TZ">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.CH.TZ">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.AT.TZ">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TS.AT.VAR">
+        <xs:complexContent>
+            <xs:extension base="TS"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="URL.NL.EXTENDED">
+        <xs:complexContent>
+            <xs:extension base="URL"/>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

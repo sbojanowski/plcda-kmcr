@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    DECOR mycommunity schema
+    Copyright (C) 2013-2015 Dr. Kai U. Heitmann
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- include DECOR datatype defintions -->
+    <xs:include schemaLocation="DECOR-datatypes.xsd"/>
+    
+    <xs:element name="community">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="desc" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="access"/>
+                <xs:element ref="prototype" minOccurs="0"/>
+                <xs:element ref="associations"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="ShortDescriptiveName"/>
+            <xs:attribute name="displayName" use="optional" type="NonEmptyString">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">A short description string for the designation</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="projectId" use="required" type="Oid"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="access">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="author"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="author">
+        <xs:complexType>
+            <xs:attribute name="rights" use="required" type="CommunityRightsType"/>
+            <xs:attribute name="username" use="required" type="NonEmptyString"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="CommunityRightsType">
+        <xs:restriction base="EnumerationToken">
+            <xs:enumeration value="r"/>
+            <xs:enumeration value="rw"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="prototype">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="data" type="PrototypeDefinition" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="ref" type="xs:anyURI"/>
+           </xs:complexType>
+    </xs:element>
+    <xs:element name="associations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="association"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="association">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="object"/>
+                <xs:element name="data" type="AssociationDefinition" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="object">
+        <xs:complexType>
+            <xs:attribute name="ref" use="required" type="Oid"/>
+            <xs:attribute name="flexibility" use="optional" type="StaticFlexibility"/>
+            <xs:attribute name="type" use="required" type="CommunityObjectTypes"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="CommunityObjectTypes">
+        <xs:restriction base="EnumerationToken">
+            <xs:enumeration value="DE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="PrototypeDefinition" mixed="true">
+        <xs:sequence>
+            <xs:element name="desc" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="enumValue" type="ShortFormalName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="type" use="required" type="ShortDescriptiveName"/>
+        <xs:attribute name="label" type="NonEmptyString"/>
+        <xs:attribute name="datatype" type="CommunityDatatype"/>
+    </xs:complexType>
+   
+    <xs:complexType name="AssociationDefinition">
+        <xs:complexContent mixed="true">
+            <xs:extension base="FreeFormMarkupWithLanguage">
+                <xs:attribute name="type" use="required" type="ShortDescriptiveName"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="CommunityDatatype">
+        <xs:restriction base="EnumerationToken">
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="code"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="enum"/>
+            <xs:enumeration value="integer"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

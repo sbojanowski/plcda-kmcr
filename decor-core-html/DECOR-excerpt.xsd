@@ -1,0 +1,29 @@
+<xs:schema xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://purl.oclc.org/dsdl/schematron" elementFormDefault="qualified">
+
+
+    <!-- include DECOR datatype defintions -->
+    <xs:include schemaLocation="DECOR.xsd"/>
+
+    <!-- this is the root element of any decor main file -->
+    <xs:element name="decor-excerpt">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="terminology" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="valueSet" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="rules" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="template" type="TemplateDefinition" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

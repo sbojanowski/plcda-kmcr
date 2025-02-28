@@ -1,0 +1,82 @@
+<prototype>
+    <data type="widget" label="widget" datatype="enum">
+        <desc language="nl-NL"/>
+        <enumValue>tab</enumValue>
+        <enumValue>collapse</enumValue>
+        <enumValue>radio</enumValue>
+    </data>
+    <data type="initial" label="initial" datatype="enum">
+        <desc language="nl-NL">Initiële waarde van accordeon (samenvouwbaar schermelement)</desc>
+        <desc language="en-US">Initial value of accordeon (collapsible UI element)</desc>
+        <enumValue>open</enumValue>
+        <enumValue>closed</enumValue>
+    </data>
+    <data type="notPresentWhen" label="notPresentWhen" datatype="string">
+        <desc language="nl-NL">XPath expressie die true() of false() moet opleveren. Indien true() wordt dit concept verborgen</desc>
+        <desc language="en-US">XPath expressioon that yields true() or false(). If true() then this concept will be hidden</desc>
+    </data>
+    <data type="default" label="default" datatype="string">
+        <desc language="nl-NL">Geeft een standaardwaarde die wordt gebruikt in plaats van een lege waarde voor nieuw toegevoegde concepten. Voor codes moet dit @localId zijn wanneer concepten een waardelijst hebben, of anders valueDomain/conceptList/concept/name.</desc>
+        <desc language="en-US">Provides a default value which is used instead of an empty value for newly added concepts. For codes this should be @localId when concepts have a valueSet, or else valueDomain/conceptList/concept/name.</desc>
+    </data>
+    <data type="skip" label="skip" datatype="string">
+        <desc language="nl-NL"/>
+    </data>
+    <data type="order" label="order" datatype="integer">
+        <desc language="nl-NL"/>
+    </data>
+    <data type="minimumMultiplicity" label="minimumMultiplicity" datatype="integer">
+        <desc language="nl-NL">Noot: geldt voor de dataset en is dus niet transactie-specifiek</desc>
+        <desc language="en-US">Note: applies to the dataset, and is not transaction specific</desc>
+    </data>
+    <data type="maximumMultiplicity" label="maximumMultiplicity" datatype="enum">
+        <desc language="nl-NL">Noot: geldt voor de dataset en is dus niet transactie-specifiek</desc>
+        <desc language="en-US">Note: applies to the dataset, and is not transaction specific</desc>
+        <enumValue>1</enumValue>
+        <enumValue>2</enumValue>
+        <enumValue>3</enumValue>
+        <enumValue>4</enumValue>
+        <enumValue>5</enumValue>
+        <enumValue>6</enumValue>
+        <enumValue>7</enumValue>
+        <enumValue>8</enumValue>
+        <enumValue>9</enumValue>
+        <enumValue>*</enumValue>
+    </data>
+    <data type="valueDomainType" label="valueDomainType" datatype="enum">
+        <desc language="nl-NL">Te gebruiken datatype in plaats van het ingestelde datatype. Noot: geldt voor de dataset en is dus niet transactie-specifiek</desc>
+        <desc language="en-US">Datatype to be used instead of the configured datatype. Note: applies to the dataset, and is not transaction specific</desc>
+        <enumValue>count</enumValue>
+        <enumValue>code</enumValue>
+        <enumValue>ordinal</enumValue>
+        <enumValue>identifier</enumValue>
+        <enumValue>string</enumValue>
+        <enumValue>text</enumValue>
+        <enumValue>date</enumValue>
+        <enumValue>datetime</enumValue>
+        <enumValue>complex</enumValue>
+        <enumValue>quantity</enumValue>
+        <enumValue>duration</enumValue>
+        <enumValue>boolean</enumValue>
+        <enumValue>blob</enumValue>
+        <enumValue>decimal</enumValue>
+    </data>
+    <data type="adaId" label="adaId" datatype="enum">
+        <desc language="nl-NL">Voegt een @id van type xs:ID mogelijkheid op een concept toe zodat hier naar kan worden verwezen</desc>
+        <desc language="en-US">Adds the option of an @id of type xs:ID to a concept so that may be used to refer to it</desc>
+        <enumValue>true</enumValue>
+        <enumValue>false</enumValue>
+    </data>
+    <data type="adaIdAndConceptRef" label="adaIdAndConceptRef" datatype="enum">
+        <desc language="nl-NL">Voegt net als adaId een @id van type xs:ID mogelijkheid op een concept toe zodat hier naar kan worden verwezen en voegt tevens een nieuw element in met de naam van het concept + 'Ref' zodat de keuze hebt of je wilt verwijzen (naar een andere instance), of dat je vult invoeren</desc>
+        <desc language="en-US">Just like adaId adds the option of an @idof type xs:ID to a concept so that may be used to refer to it, and adds a preceding sibling element with the name of the concept + 'Ref' so you have the option to refer (to a different instance) or to populate.</desc>
+        <enumValue>true</enumValue>
+        <enumValue>false</enumValue>
+    </data>
+    <data type="dobId" label="dobId" datatype="enum">
+        <desc language="nl-NL">Voegt een @id van type xs:ID en vaste waarde 'DOB' (Date of Birth) op een concept toe dat de geboortedatum voorstelt, zodat hier naar kan worden verwezen vanuit een relatieve datum. Bijvoorbeeld DOB+2D (twee dagen na geboorte)</desc>
+        <desc language="en-US">Adds an @id of type xs:ID with fixed value 'DOB' (Date of Birth) to a concept that means date of birth so that may be used to refer to from a relative date like DOB+2D (two days after birth)</desc>
+        <enumValue>true</enumValue>
+        <enumValue>false</enumValue>
+    </data>
+</prototype>

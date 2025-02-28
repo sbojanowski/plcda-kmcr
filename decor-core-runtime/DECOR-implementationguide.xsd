@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    DECOR schema for ART-DECOR Implementation Guides
+    Copyright (C) 2021-present by ART-DECOR Expert Group
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+    
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" elementFormDefault="qualified">
+
+    <!-- include DECOR datatype defintions -->
+    <xs:include schemaLocation="DECOR.xsd"/>
+    <xs:include schemaLocation="DECOR-datatypes.xsd"/>
+    
+    <xs:element name="implementationGuide" type="ImplementationGuideType"/>
+
+    <xs:complexType name="ImplementationGuideType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en-US">Implementation Guide definition for CDA or FHIR or whatever based implementation guides</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="title" type="BusinessNameWithLanguage" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">The human readable name of the Implementation Guide</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="desc" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Natural language description of the Implementation Guide</xs:documentation>
+                </xs:annotation>
+            </xs:element>  
+            <xs:element name="publishingAuthority" type="AuthorityType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">The authoritative body who has reviewed the Implementation Guide for accuracy and relevance, 
+                        and authorized it for publication. Registries may require this element to be valued</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="copyright" minOccurs="0" maxOccurs="unbounded" type="CopyrightText">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">A copyright statement relating to the Implementation Guide and/or its contents.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="definition" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="Oid" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en-US">The internal identifier (OID) of the Implementation Guide</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <!-- Need effectiveDate, versionLabel, lastModifiedDate -->
+        <xs:attributeGroup ref="VersionHandling"/>
+        <xs:attribute name="name" type="ShortFormalName" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en-US">The mnemonic name of the Implementation Guide</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="statusCode" type="ItemStatusCodeLifeCycle" use="required"/>
+        <xs:attribute name="canonicalUri" type="xs:anyURI"/>
+        <xs:attribute name="projectId" type="Oid" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en-US">The internal identifier (OID) of the DECOR project this Implementation Guide belongs to</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="experimental" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation xml:lang="en-US">DECOR artefact is for testing purposes, not real usage</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="standardVersion" type="SupportedStandardTypes" use="optional">
+            <xs:annotation>
+                <xs:documentation xml:lang="en-US">Version of the underlying standard this Implementation Guide targets, e.g. FHIR R4 or CDA R2</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="definition">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="resource" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>List of resources in the implementation guide</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="page" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>First page in this list is the index page of the Implementation Guide, followed by subsequent optional sub pages</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+      <xs:unique name="resource-ids-unique">
+          <xs:selector xpath="resource"/>
+          <xs:field xpath="@id"/>
+      </xs:unique>
+        <xs:unique name="page-ids-unique">
+          <xs:selector xpath=".//page"/>
+          <xs:field xpath="@id"/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="resource">
+        <xs:annotation>
+            <xs:documentation>Resource in the Implementation Guide</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <!-- NOTE: @name (ShortFormalName) and @displayName (NonEmptyString) are always converted into a name and desc element -->
+                <xs:element name="name" type="BusinessNameWithLanguage" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">Human Name for the artefact. Artefact/name if available, otherwise artefact/@displayName under project/@defaultLanguage, finally artefact/@name under project/@defaultLanguage</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="desc" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">Natural language description of the artefact</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="example" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>If the resource is an example, what is this an example of: link to the resource of the example</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:attribute name="canonicalUri" type="xs:anyURI"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="Oid" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Defines the globally unique identifier for this artefact</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attributeGroup ref="VersionHandlingEffectiveDateOptional"/>
+            <xs:attribute name="statusCode" type="ItemStatusCodeLifeCycle" use="required"/>
+            <xs:attribute name="canonicalUri" type="xs:anyURI" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Defines the canonical uir for this artefact</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="artefact" type="DecorAndOtherObjectTypes" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Defines the type of this DECOR artefact</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="generated" type="xs:boolean" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Defines whether type of thnameis DECOR artefact</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="experimental" type="xs:boolean" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">DECOR artefact is for testing purposes, not real usage</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="type" type="TransactionType" use="optional"/>
+            <xs:attribute name="model" type="xs:NCName" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Root element name for the XML structure without namespace prefix that represents this transaction. For HL7 V3 messaging this could be REPC_IN004410UV, for HL7 V2 messaging this could be ADT_A01</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="label" type="xs:NCName" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Constitutes the value for the schematron file with the project prefix (//project/@prefix)</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="url" type="Uri" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">ART-DECOR repository URI directly pointing to the services, e.g. "http://art-decor.org/decor/services/"; ends with "/"</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="ident" type="NonEmptyString" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">ART-DECOR repository identification string (prefix), e.g. "ad1bbr-"; ends with "-"</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="page">
+        <xs:annotation>
+            <xs:documentation>A page in the implementation guide</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="BusinessNameWithLanguage" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en-US">Required title shown for navigational assistance</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="content" type="FreeFormMarkupWithLanguage" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>The actual page content</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="page" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>Optional sub pages</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="Uuid" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Each page has an internal identifier (a UUID) within the Implementation Guide</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute ref="lastModifiedDate" use="optional">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Identifies last point in time that the page was changed.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

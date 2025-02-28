@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    DECOR schema for governance group information per server
+    Instance is typically part of db/apps/art-data named hosted-governance-groups.xml
+    Copyright (C) 2014-2015 Dr. Kai U. Heitmann
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+    
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:include schemaLocation="DECOR-datatypes.xsd"/>
+    <xs:include schemaLocation="DECOR.xsd"/>
+
+    <xs:element name="governance">
+        <xs:annotation>
+            <xs:documentation xml:lang="en-US">Root element for grouping zero or more governance group definitions</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="group" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="governance-group-links">
+        <xs:annotation>
+            <xs:documentation xml:lang="en-US">Root element for the connection of a project to zero or more governance groups</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="partOf" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="ref" type="Oid" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Reference to a DECOR project id</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="group">
+        <xs:annotation>
+            <xs:documentation xml:lang="en-US">Governance group definition</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="BusinessNameWithLanguage" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="desc" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="copyright" type="GovernanceGroupCopyright" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="Oid" use="required"/>
+            <xs:attribute name="defaultLanguage" type="xs:language" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="partOf">
+        <xs:complexType>
+            <xs:attribute name="ref" type="Oid" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Reference to a governance group id</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="GovernanceGroupCopyright">
+        <xs:sequence>
+            <xs:element ref="addrLine" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="years" type="YearRanges" use="optional"/>
+        <xs:attribute name="logo" type="Uri" use="optional"/>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <description>DECOR-core contains definitions for the DECOR format in XSD, transformations that produce HTML/Schematron/Wiki etc.</description>
+    <author>ART-DECOR Expert Group</author>
+    <website>http://art-decor.org</website>
+    <status>beta</status>
+    <license>GNU-LGPL</license>
+    <copyright>true</copyright>
+    <type>library</type>
+    <target>decor/core</target>
+    <prepare/>
+    <finish>post-install.xql</finish>
+</meta>

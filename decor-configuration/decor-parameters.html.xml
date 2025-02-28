@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decor-parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="iEHReu.DecorParameters.xsd">
+    <switchCreateSchematron0/>
+    <switchCreateSchematronWithWrapperIncludes0/>
+    <switchCreateSchematronWithWarningsOnOpen0/>
+    <switchCreateSchematronClosed0/>
+    <switchCreateSchematronWithExplicitIncludes0/>
+    <switchCreateDocHTML1/>
+    <switchCreateDocSVG0/>
+    <switchCreateDocDocbook0/>
+    <useLocalAssets1/>
+    <useLocalLogos1/>
+    <customLogos>
+        <logo src="assets/logos/ezdrowie-p1.png" href="http://ezdrowie.gov.pl/" title="eZdrowie - Projekt P1"/>
+    </customLogos>
+    <useLatestDecorVersion0/>
+    <inDevelopment1/>
+    <defaultLanguage>pl-PL</defaultLanguage>
+    <switchCreateDatatypeChecks1/>
+    <createDefaultInstancesForRepresentingTemplates0/>
+    <logLevel>INFO</logLevel>
+    <!-- <homePage src="data/pages/Temp.html" language="pl-PL"/>
+    <homePage src="data/pages/Temp_EN.html" language="en-US"/> -->
+    <examples>
+        <!-- <example src="data/examples/Dokument_anulujący_receptę.xml" templateId="2.16.840.1.113883.3.4424.13.10.1.25" title="Dokument anulujący receptę"/>
+        <example src="data/examples/Dokument_recepty_farmaceutycznej.xml"  templateId="2.16.840.1.113883.3.4424.13.10.1.7" title="Dokument recepty farmaceutycznej"/> -->
+    </examples>
+    <dictionaries>
+        <!-- <dictionary name="PolskieKlasyfikatoryHL7v3" title="Polskie Klasyfikatory HL7 v3" src="data/dictionaries/PK_HL7V3.xml"/>
+        <dictionary name="NazwySkalOcenPiel" title="Słownik nazw skal ocen pielęgniarskich" src="data/dictionaries/NazwySkalOcenPiel.xml"/> -->
+    </dictionaries>
+    <oidSpecificationFile src="data/P1-DS-E6-Drzewo_OID_0.5.6_20151110.xls"/>
+</decor-parameters>

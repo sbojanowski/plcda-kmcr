@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    
+    DECOR UCUM data schema
+    Copyright (C) 2009-2015 Dr. Kai U. Heitmann
+    
+    This program is free software; you can redistribute it and/or modify it under the terms 
+    of the GNU General Public License as published by the Free Software Foundation; 
+    either version 3 of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+    See the GNU General Public License for more details.
+    
+    See http://www.gnu.org/licenses/gpl.html
+    
+--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="ucums">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ucum" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="ucum">
+        <xs:complexType mixed="true">
+            <xs:attribute name="unit" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">An example UCUM unit, valid or invalid</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="displayName" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">The textual representation of the example UCUM unit</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="message" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en-US">Either the string "OK" to indicate that the example UCUM unit is valid or a text string that is used as an error message in case the example UCUM unit is invalid</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>

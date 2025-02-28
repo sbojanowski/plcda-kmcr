@@ -1,0 +1,62 @@
+<prototype>
+    <data type="widget" label="widget" datatype="enum">
+        <desc language="nl-NL"/>
+        <enumValue>tab</enumValue>
+        <enumValue>collapse</enumValue>
+        <enumValue>radio</enumValue>
+    </data>
+    <data type="initial" label="initial" datatype="enum">
+        <desc language="nl-NL"/>
+        <enumValue>open</enumValue>
+        <enumValue>closed</enumValue>
+    </data>
+    <data type="notPresentWhen" label="notPresentWhen" datatype="string">
+        <desc language="nl-NL"/>
+    </data>
+    <data type="default" label="default" datatype="string">
+        <desc language="nl-NL">Geeft een standaardwaarde die wordt gebruikt in plaats van een lege waarde voor nieuw toegevoegde concepten. Voor codes moet dit @localId zijn wanneer concepten een waardelijst hebben, of anders valueDomain/conceptList/concept/name.</desc>
+        <desc language="en-US">Provides a default value which is used instead of an empty value for newly added concepts. For codes this should be @localId when concepts have a valueSet, or else valueDomain/conceptList/concept/name.</desc>
+    </data>
+    <data type="skip" label="skip" datatype="string">
+        <desc language="nl-NL"/>
+    </data>
+    <data type="order" label="order" datatype="integer">
+        <desc language="nl-NL"/>
+    </data>
+    <data type="minimumMultiplicity" label="minimumMultiplicity" datatype="integer">
+        <desc language="nl-NL">Noot: geldt voor de dataset en is dus niet transactie-specifiek</desc>
+        <desc language="en-US">Note: applies to the dataset, and is not transaction specific</desc>
+    </data>
+    <data type="maximumMultiplicity" label="maximumMultiplicity" datatype="enum">
+        <desc language="nl-NL">Noot: geldt voor de dataset en is dus niet transactie-specifiek</desc>
+        <desc language="en-US">Note: applies to the dataset, and is not transaction specific</desc>
+        <enumValue>1</enumValue>
+        <enumValue>2</enumValue>
+        <enumValue>3</enumValue>
+        <enumValue>4</enumValue>
+        <enumValue>5</enumValue>
+        <enumValue>6</enumValue>
+        <enumValue>7</enumValue>
+        <enumValue>8</enumValue>
+        <enumValue>9</enumValue>
+        <enumValue>*</enumValue>
+    </data>
+    <data type="valueDomainType" label="valueDomainType" datatype="enum">
+        <desc language="nl-NL">Te gebruiken datatype in plaats van het ingestelde datatype. Noot: geldt voor de dataset en is dus niet transactie-specifiek</desc>
+        <desc language="en-US">Datatype to be used instead of the configured datatype. Note: applies to the dataset, and is not transaction specific</desc>
+        <enumValue>count</enumValue>
+        <enumValue>code</enumValue>
+        <enumValue>ordinal</enumValue>
+        <enumValue>identifier</enumValue>
+        <enumValue>string</enumValue>
+        <enumValue>text</enumValue>
+        <enumValue>date</enumValue>
+        <enumValue>datetime</enumValue>
+        <enumValue>complex</enumValue>
+        <enumValue>quantity</enumValue>
+        <enumValue>duration</enumValue>
+        <enumValue>boolean</enumValue>
+        <enumValue>blob</enumValue>
+        <enumValue>decimal</enumValue>
+    </data>
+</prototype>

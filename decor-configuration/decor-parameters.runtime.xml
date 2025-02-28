@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decor-parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="iEHReu.DecorParameters.xsd">
+    <switchCreateSchematron1/>
+    <switchCreateSchematronWithWrapperIncludes0/>
+    <switchCreateSchematronWithWarningsOnOpen0/>
+    <switchCreateSchematronClosed0/>
+    <switchCreateSchematronWithExplicitIncludes0/>
+    <switchCreateDocHTML0/>
+    <switchCreateDocSVG0/>
+    <switchCreateDocDocbook0/>
+    <useLocalAssets1/>
+    <useLocalLogos1/>
+    <useLatestDecorVersion0/>
+    <inDevelopment1/>
+    <defaultLanguage>pl-PL</defaultLanguage>
+    <switchCreateDatatypeChecks0/>
+    <createDefaultInstancesForRepresentingTemplates0/>
+    <logLevel>DEBUG</logLevel>
+</decor-parameters>
